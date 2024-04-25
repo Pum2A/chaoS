@@ -1,0 +1,46 @@
+{
+  "products": [
+
+    {
+      "id": 1,
+      "name": "Laptops",
+      "series": ["Serie A", "Serie B", "Serie C"]
+    },
+    {
+       "id": 2,
+      "name": "Phones",
+      "series": ["Serie X", "Serie Y", "Serie Z"]
+    },
+    {
+       "id": 3,
+      "name": "Headphones",
+      "series": ["Serie X", "Serie Y", "Serie Z"]
+    },
+    {
+       "id": 4,
+      "name": "Computers",
+      "series": ["Serie X", "Serie Y", "Serie Z"]
+    },
+    {
+       "id": 5,
+      "name": "Accessories",
+      "series": ["Serie X", "Serie Y", "Serie Z"]
+    },
+    {
+       "id": 6,
+      "name": "House",
+      "series": ["Serie X", "Serie Y", "Serie Z"]
+    },
+    {
+       "id": 7,
+      "name": "Support",
+      "series": ["Serie X", "Serie Y", "Serie Z"]
+    },
+    {
+       "id": 8,
+      "name": "History",
+      "series": ["Serie X", "Serie Y", "Serie Z"]
+    }
+  ]
+
+  }

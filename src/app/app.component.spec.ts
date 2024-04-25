@@ -1,10 +1,21 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import {
+  provideHttpClient,
+  withInterceptorsFromDi,
+} from '@angular/common/http';
+import { provideAnimations } from '@angular/platform-browser/animations';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [AppComponent],
+      providers: [
+        provideMsal(),
+        provideHttpClient(withInterceptorsFromDi()),
+        provideAnimations(), // need this
+        provideAnimations(), // might also need this
+      ],
     }).compileComponents();
   });
 
@@ -27,3 +38,6 @@ describe('AppComponent', () => {
     expect(compiled.querySelector('h1')?.textContent).toContain('Hello, chaoS');
   });
 });
+function provideMsal(): any {
+  throw new Error('Function not implemented.');
+}

@@ -1,0 +1,71 @@
+.top {
+  width: 100%;
+  height: 5rem;
+  background-color: black;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ul {
+  gap: 2rem;
+  list-style: none;
+  display: flex;
+}
+
+ul li a {
+  font-size: 1.3rem;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 300;
+  letter-spacing: 0.1rem;
+  text-rendering: optimizeSpeed;
+  cursor: pointer;
+}
+
+.logo {
+  font-size: 1.6rem;
+  margin: 2rem;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+  cursor: pointer;
+}
+.series-info {
+  width: 100%;
+  height: 5rem;
+  background-color: black;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.series-info ul {
+  cursor: pointer;
+}
+
+#menu {
+  margin: 2rem;
+  font-size: 1.6rem;
+  display: none;
+}
+
+.series-list {
+  background-color: green;
+  height: 8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 900px) {
+  .top {
+    justify-content: space-between;
+  }
+  ul {
+    display: none;
+  }
+  #menu {
+    display: flex;
+  }
+}

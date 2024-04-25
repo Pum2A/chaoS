@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
+import { TopbarComponent } from '../navigation/topbar/topbar.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [],
-  template: ` <p>Testowa Wiadomość</p> `,
+  template: ``,
+
   styleUrl: './home.component.scss',
+  imports: [TopbarComponent],
 })
 export class HomeComponent {}

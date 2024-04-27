@@ -4,37 +4,37 @@
     {
       "id": 1,
       "name": "Laptops",
-      "series": ["Serie A", "Serie B", "Serie C"]
+      "series": ["Dell", "HP", "Lenovo"]
     },
     {
        "id": 2,
       "name": "Phones",
-      "series": ["Serie X", "Serie Y", "Serie Z"]
+      "series":  ["Samsung", "Apple", "Huawei"]
     },
     {
        "id": 3,
       "name": "Headphones",
-      "series": ["Serie X", "Serie Y", "Serie Z"]
+      "series":  ["Sony", "Bose", "Sennheiser"]
     },
     {
        "id": 4,
       "name": "Computers",
-      "series": ["Serie X", "Serie Y", "Serie Z"]
+      "series": ["Apple", "Microsoft", "Asus"]
     },
     {
        "id": 5,
       "name": "Accessories",
-      "series": ["Serie X", "Serie Y", "Serie Z"]
+      "series": ["Logitech", "Belkin", "Anker"]
     },
     {
        "id": 6,
       "name": "House",
-      "series": ["Serie X", "Serie Y", "Serie Z"]
+      "series":  ["Philips", "iRobot", "Nest"]
     },
     {
        "id": 7,
       "name": "Support",
-      "series": ["Serie X", "Serie Y", "Serie Z"]
+      "series": ["Contact us", "Give us a survey", "Rate us"]
     },
     {
        "id": 8,

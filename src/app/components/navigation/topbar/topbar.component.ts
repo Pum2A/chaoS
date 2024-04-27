@@ -34,19 +34,21 @@ import {
     </div>
     @for (product of products; track product.id){ @if(product.visibility){
     <div class="series-list " @flyInOut>
-      <p>{{ product.series }}</p>
+      <a>{{ product.series[0] }}</a>
+      <a>{{ product.series[1] }}</a>
+      <a>{{ product.series[2] }}</a>
     </div>
     } }
   `,
   animations: [
     trigger('flyInOut', [
-      state('in', style({ transform: 'translateX(0)' })),
+      state('in', style({ transform: 'translateY(0)' })),
       transition('void => *', [
-        style({ transform: 'translateX(-100%)' }),
-        animate(100),
+        style({ transform: 'translateY(-100%)' }),
+        animate(125),
       ]),
       transition('* => void', [
-        animate(100, style({ transform: 'translateX(100%)' })),
+        animate(0, style({ transform: 'translateY(-100%)' })),
       ]),
     ]),
   ],

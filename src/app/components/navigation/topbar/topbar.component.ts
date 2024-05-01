@@ -9,6 +9,7 @@ import {
   transition,
   animate,
 } from '@angular/animations';
+import { MaterialIcon } from 'material-icons';
 
 @Component({
   selector: 'app-topbar',
@@ -28,9 +29,9 @@ import {
 
           }
         </ul>
-      </nav>
 
-      <i id="menu" class="fa fa-bars"></i>
+        <i id="menu" class="fa-solid fa-bars" (click)="toggleMenu()"></i>
+      </nav>
     </div>
     @for (product of products; track product.id){ @if(product.visibility){
     <div class="series-list " @flyInOut>
@@ -56,10 +57,6 @@ import {
   styleUrl: './topbar.component.scss',
 })
 export class TopbarComponent {
-  constructor() {
-    console.log(jsonData);
-  }
-
   products: any[] = jsonData.products.map((product) => ({
     ...product,
     visibility: false,
@@ -67,6 +64,12 @@ export class TopbarComponent {
 
   @Output() open: EventEmitter<any> = new EventEmitter();
   @Output() close: EventEmitter<any> = new EventEmitter();
+
+  @Output() menuToggle = new EventEmitter<void>();
+
+  toggleMenu() {
+    this.menuToggle.emit();
+  }
 
   toggleVisibility(selectedProduct: { visibility: boolean }) {
     // if product is visible then toggle his visibility

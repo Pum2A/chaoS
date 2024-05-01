@@ -12,4 +12,6 @@ import { TopbarComponent } from './components/navigation/topbar/topbar.component
 })
 export class AppComponent {
   title = 'chaoS';
+
+  isMenuOpen = false;
 }

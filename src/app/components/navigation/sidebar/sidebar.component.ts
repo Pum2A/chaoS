@@ -1,12 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-sidebar',
   standalone: true,
   imports: [],
-  templateUrl: './sidebar.component.html',
-  styleUrl: './sidebar.component.scss'
+  template: `
+    <nav>
+      @if (isOpen) {
+
+      <p>Testowa wiaodmosc</p>
+      }
+    </nav>
+  `,
+  styleUrl: './sidebar.component.scss',
 })
 export class SidebarComponent {
-
+  @Input() isOpen!: boolean;
 }

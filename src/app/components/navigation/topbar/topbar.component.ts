@@ -22,7 +22,7 @@ import { MaterialIcon } from 'material-icons';
         <ul>
           @for (product of products; track product.id){
           <li>
-            <a (click)="toggleVisibility(product)">
+            <a (click)="toggleVisibility(product)" #greeting>
               {{ product.name }}
             </a>
           </li>
@@ -33,6 +33,7 @@ import { MaterialIcon } from 'material-icons';
         <i id="menu" class="fa-solid fa-bars" (click)="toggleMenu()"></i>
       </nav>
     </div>
+
     @for (product of products; track product.id){ @if(product.visibility){
     <div class="series-list " @flyInOut>
       <a>{{ product.series[0] }}</a>

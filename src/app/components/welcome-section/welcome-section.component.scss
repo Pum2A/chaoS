@@ -1,0 +1,82 @@
+.bg {
+  min-height: 90vh;
+  display: flex;
+  // justify-content: center;
+  align-items: center;
+}
+
+.welcome-section {
+  // height: 60rem;
+  padding: 5rem 9% 2rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  width: 100%;
+}
+
+.welcome-content {
+  padding: 2rem 4rem;
+  max-width: 60rem;
+}
+
+.welcome-content h1 {
+  font-size: 6rem;
+  line-height: 100%;
+  letter-spacing: 0.2rem;
+}
+
+.welcome-content-text {
+  text-align: justify;
+}
+h3 {
+  font-weight: 100;
+  font-weight: 200;
+}
+
+img {
+  height: 500px;
+  image-rendering: optimizeQuality;
+  border-radius: 50%;
+}
+
+.welcome-content-button-container {
+  padding: 4rem 0rem 0rem 0rem;
+}
+
+.welcome-content-button-container button {
+  width: 14rem;
+  height: 4.5rem;
+  outline: none;
+  border-radius: 1rem;
+  font-size: 1.6rem;
+  border: none;
+  border: 1px solid #fff;
+  background-color: #000;
+  color: #fff;
+  font-family: "Roboto", sans-serif !important;
+  margin: 0.5rem 0rem;
+  font-weight: 100;
+  cursor: pointer;
+}
+
+h4 {
+  font-size: 3rem;
+  line-height: 100%;
+  letter-spacing: 0.5rem;
+}
+
+@media screen and (max-width: 900px) {
+  .welcome-section {
+    flex-direction: column;
+    align-items: baseline;
+    align-items: center;
+    text-align: center;
+  }
+  .welcome-content {
+    padding: 0rem 0rem;
+  }
+  img {
+    height: 300px;
+  }
+}

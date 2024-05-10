@@ -1,33 +1,24 @@
-.bg {
-  // min-height: 90vh;
-  // display: flex;
-  // justify-content: center;
-  // align-items: center;
-}
 .wrapper {
   max-width: 1460px;
   margin-inline: auto;
-  // height: 100vh;
 }
 
 .welcome-section {
-  height: 80vh;
+  height: 100vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  // justify-content: space-around;
-  // align-items: center;
-
-  // width: 100%;
+  padding: 0rem 0rem 0rem 2rem;
 }
 
-.welcome-content {
-  padding: 2rem 4rem;
-  max-width: 60rem;
+.welcome-content p {
+  color: #c31c26;
+  font-weight: 800;
+  font-size: 3rem;
 }
 
 .welcome-content h1 {
-  font-size: 12rem;
+  font-size: 8rem;
   line-height: 115%;
   letter-spacing: 0.5rem;
   font-weight: 600;
@@ -60,7 +51,7 @@ button {
   border-radius: 2rem;
   font-size: 1.6rem;
   border: none;
-  background-color: #00a36c;
+  background-color: #c31c26;
   color: #fff;
   font-family: "Roboto", sans-serif !important;
   margin: 0.5rem 0rem;
@@ -70,7 +61,7 @@ button {
 #products-button {
   margin: 0rem 2rem;
   background-color: #000;
-  border: 1px solid #00a36c;
+  border: 1px solid #c31c26;
 }
 
 h4 {

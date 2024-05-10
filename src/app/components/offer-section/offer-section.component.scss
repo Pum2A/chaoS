@@ -1,0 +1,79 @@
+.wrapper {
+  max-width: 1160px;
+  margin-inline: auto;
+  padding: 0rem 2rem 20rem 2rem;
+}
+.electronic-offer-text {
+  font-size: 6rem;
+  padding: 4rem 0rem;
+  text-align: center;
+  font-weight: 800;
+  line-height: 100%;
+}
+
+.blocks-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  grid-auto-rows: minmax(300px, auto);
+}
+
+.block {
+  background-color: #1d1d1d;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 300px;
+  padding: 1rem 4rem;
+}
+.block h5 {
+  font-weight: 800;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  padding: 3rem 0rem 0rem 0rem;
+}
+.block p {
+  font-size: 1.5rem;
+  padding: 1rem 0rem;
+  font-weight: 100;
+  text-align: justify;
+}
+.block a {
+  font-size: 1.8rem;
+  color: #c31c26;
+  padding: 1rem 0rem;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 0.3rem;
+  cursor: pointer;
+}
+.a-cont {
+  width: 100%;
+}
+ng-icon {
+  font-size: 5rem;
+  color: #c31c26;
+}
+
+.block:hover {
+  background-color: #c31c26;
+
+  .a-cont a {
+    color: #fff;
+  }
+  ng-icon {
+    color: #fff;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .blocks-wrapper {
+    grid-template-columns: repeat(1, 1fr);
+    justify-content: center;
+  }
+  .block {
+    min-width: 300px;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}

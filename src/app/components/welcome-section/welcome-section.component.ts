@@ -5,19 +5,26 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   template: `
-    <div class="bg">
+    <div class="wrapper">
       <section class="welcome-section">
         <div class="welcome-content">
-          <h1>Welcome to chaoS</h1>
-          <h3>Your electronic experts.</h3>
+          <h1>
+            Welcome to
+            <span> chaoS </span>
+          </h1>
+          <h3>Your professional electronic team.</h3>
           <p class="welcome-content-text">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima
-            quia perferendis nihil ducimus delectus incidunt corrupti distinctio
-            quae quaerat odit dignissimos eius quisquam sapiente doloremque,
-            labore ipsum qui. Earum quisquam amet tempore labore incidunt ullam
-            dolor, nemo deserunt aliquid iusto exercitationem pariatur fugit,
-            mollitia blanditiis suscipit explicabo commodi ipsam illo?
+            <!-- Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima
+              quia perferendis nihil ducimus delectus incidunt corrupti distinctio
+              quae quaerat odit dignissimos eius quisquam sapiente doloremque,
+              labore ipsum qui. Earum quisquam amet tempore labore incidunt ullam
+              dolor, nemo deserunt aliquid iusto exercitationem pariatur fugit,
+              mollitia blanditiis suscipit explicabo commodi ipsam illo? -->
           </p>
+          <div class="buttons-container">
+            <button>Learn more</button>
+            <button id="products-button">Buy products</button>
+          </div>
         </div>
         <div class="welcome-content-second">
           <img

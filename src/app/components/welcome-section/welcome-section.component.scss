@@ -1,18 +1,24 @@
 .bg {
-  min-height: 90vh;
-  display: flex;
+  // min-height: 90vh;
+  // display: flex;
   // justify-content: center;
-  align-items: center;
+  // align-items: center;
+}
+.wrapper {
+  max-width: 1460px;
+  margin-inline: auto;
+  // height: 100vh;
 }
 
 .welcome-section {
-  // height: 60rem;
-  padding: 5rem 9% 2rem;
+  height: 80vh;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+  // justify-content: space-around;
+  // align-items: center;
 
-  width: 100%;
+  // width: 100%;
 }
 
 .welcome-content {
@@ -21,17 +27,20 @@
 }
 
 .welcome-content h1 {
-  font-size: 6rem;
-  line-height: 100%;
-  letter-spacing: 0.2rem;
+  font-size: 12rem;
+  line-height: 115%;
+  letter-spacing: 0.5rem;
+  font-weight: 600;
 }
 
 .welcome-content-text {
   text-align: justify;
+  line-height: 125%;
 }
 h3 {
-  font-weight: 100;
   font-weight: 200;
+  font-size: 3rem;
+  line-height: 100%;
 }
 
 img {
@@ -44,20 +53,24 @@ img {
   padding: 4rem 0rem 0rem 0rem;
 }
 
-.welcome-content-button-container button {
+button {
   width: 14rem;
   height: 4.5rem;
   outline: none;
-  border-radius: 1rem;
+  border-radius: 2rem;
   font-size: 1.6rem;
   border: none;
-  border: 1px solid #fff;
-  background-color: #000;
+  background-color: #00a36c;
   color: #fff;
   font-family: "Roboto", sans-serif !important;
   margin: 0.5rem 0rem;
   font-weight: 100;
   cursor: pointer;
+}
+#products-button {
+  margin: 0rem 2rem;
+  background-color: #000;
+  border: 1px solid #00a36c;
 }
 
 h4 {
@@ -72,11 +85,34 @@ h4 {
     align-items: baseline;
     align-items: center;
     text-align: center;
+    justify-content: inherit;
+    margin-top: 5rem;
   }
   .welcome-content {
     padding: 0rem 0rem;
   }
   img {
     height: 300px;
+    margin: 5rem 0rem;
+  }
+
+  .welcome-content h1 {
+    font-size: 3rem;
+    margin: 0 auto;
+    text-align: inherit;
+    margin: 1rem 0rem;
+  }
+
+  h3 {
+    font-size: 1.6rem;
+  }
+  button {
+    width: 10rem;
+    font-size: 1.3rem;
+  }
+  .buttons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }

@@ -28,10 +28,6 @@ import { Component } from '@angular/core';
         </div>
       </section>
     </div>
-    <!-- <div class="welcome-content-button-container">
-      <h4>Our professional products</h4>
-      <button>Check</button>
-    </div> -->
   `,
 
   styleUrl: './welcome-section.component.scss',

@@ -5,6 +5,7 @@ import { TopbarComponent } from './components/navigation/topbar/topbar.component
 import { WelcomeSectionComponent } from './components/welcome-section/welcome-section.component';
 import { OfferSectionComponent } from './components/offer-section/offer-section.component';
 import { MatIconModule } from '@angular/material/icon';
+import { ExperienceSectionComponent } from './components/experience-section/experience-section.component';
 
 @Component({
   selector: 'app-root',
@@ -18,6 +19,7 @@ import { MatIconModule } from '@angular/material/icon';
     WelcomeSectionComponent,
     OfferSectionComponent,
     MatIconModule,
+    ExperienceSectionComponent,
   ],
 })
 export class AppComponent {

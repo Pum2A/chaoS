@@ -24,7 +24,9 @@ import { NgIconComponent, provideIcons } from '@ng-icons/core';
   ],
   template: `
     <div class="wrapper">
-      <h5>Company experience</h5>
+      <div class="h5-container">
+        <h5>Company experience</h5>
+      </div>
       <section class="experience-section">
         <div class="left-block">
           <div class="block-container">
@@ -61,12 +63,14 @@ import { NgIconComponent, provideIcons } from '@ng-icons/core';
                 <span>14 day return policy</span>
               </div>
               <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Suscipit, quidem! Lorem, ipsum dolor sit amet consectetur
-                adipisicing elit. Suscipit, quidem!
+                We offer a 14-day return policy for all our products. If you are
+                not satisfied with your purchase, you can return it within 14
+                days of receiving it for a full refund. Please note that the
+                item must be in its original condition and packaging. To
+                initiate a return, please contact our customer support team.
               </p>
-              <div class="a-cont">
-                <a>Check more</a>
+              <div class="btn-container">
+                <button>Check</button>
               </div>
             </div>
             <div class="block">
@@ -75,12 +79,13 @@ import { NgIconComponent, provideIcons } from '@ng-icons/core';
                 <span>100% Quality Guarantee</span>
               </div>
               <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Suscipit, quidem! Lorem, ipsum dolor sit amet consectetur
-                adipisicing elit. Suscipit, quidem!
+                We are committed to providing products and services of the
+                highest quality. Our team of experts ensures that every aspect
+                of our offerings meets rigorous quality standards. We stand
+                behind our products and guarantee your satisfaction.
               </p>
-              <div class="a-cont">
-                <a>Check more</a>
+              <div class="btn-container">
+                <button id="second-check-button">Check</button>
               </div>
             </div>
           </div>

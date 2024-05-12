@@ -22,7 +22,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
+  gap: 3rem;
 
   @media (max-width: 768px) {
     /* Styles for smaller screens */
@@ -31,11 +31,12 @@
 }
 
 .left-block {
-  background-color: #1d1d1d;
+  background-color: #111111;
   width: 100%;
   display: flex;
   flex-direction: column;
   padding: 0rem 2rem;
+  border-left: 3px solid #c31c26;
 
   // justify-content: space-evenly;
   // align-items: center;
@@ -49,7 +50,7 @@
 
 .right-block {
   background-color: #000;
-  width: 70%;
+  width: 100%;
   // padding: 0rem 2rem;
 }
 @media (max-width: 768px) {
@@ -74,6 +75,12 @@ p {
   font-size: 3rem;
   line-height: 125%;
 }
+
+@media (max-width: 768px) {
+  .block-container p {
+    font-size: 2rem;
+  }
+}
 .block-container span {
   color: #c31c26;
   line-height: 125%;
@@ -85,10 +92,17 @@ p {
   color: #c31c26;
 }
 
+@media (max-width: 768px) {
+  .experience-icons {
+    padding: 0rem 0rem;
+    font-size: 3rem;
+  }
+}
+
 .blocks-wrapper {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  gap: 10px;
+  gap: 3rem;
   grid-auto-rows: minmax(300px, auto);
 
   @media (max-width: 768px) {
@@ -96,6 +110,26 @@ p {
   }
 }
 
+button {
+  width: 14rem;
+  height: 4.5rem;
+  outline: none;
+  border-radius: 2rem;
+  font-size: 1.6rem;
+  border: none;
+  font-family: "Roboto", sans-serif !important;
+  margin: 0.5rem 0rem;
+  font-weight: 100;
+  background-color: #111111;
+  color: #fff;
+  border: 1px solid #c31c26;
+  cursor: pointer;
+  box-shadow: 0px 0px 6px #c31c26;
+  letter-spacing: 0.2rem;
+}
+.btn-container {
+  margin: 0rem 2rem;
+}
 .blocks-wrapper .block {
   width: 100%;
   background-color: #111111;
@@ -103,6 +137,7 @@ p {
   flex-direction: column;
   justify-content: center;
   padding: 2rem 0rem;
+  border-left: 3px solid #c31c26;
 }
 
 .block span {
@@ -117,6 +152,7 @@ p {
   padding: 2rem 2rem;
   font-weight: 100;
   line-height: 100%;
+  text-align: justify;
 }
 
 .block .a-cont a {
@@ -126,6 +162,9 @@ p {
   font-weight: 800;
   color: #c31c26;
   line-height: 100%;
+}
+.block .a-cont {
+  padding: 2rem 0rem;
 }
 
 .block ng-icon {

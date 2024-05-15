@@ -6,6 +6,7 @@ import { WelcomeSectionComponent } from './components/welcome-section/welcome-se
 import { OfferSectionComponent } from './components/offer-section/offer-section.component';
 import { MatIconModule } from '@angular/material/icon';
 import { ExperienceSectionComponent } from './components/experience-section/experience-section.component';
+import { LocationSectionComponent } from './components/location-section/location-section.component';
 
 @Component({
   selector: 'app-root',
@@ -20,6 +21,7 @@ import { ExperienceSectionComponent } from './components/experience-section/expe
     OfferSectionComponent,
     MatIconModule,
     ExperienceSectionComponent,
+    LocationSectionComponent,
   ],
 })
 export class AppComponent {

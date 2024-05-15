@@ -7,6 +7,7 @@ import { OfferSectionComponent } from './components/offer-section/offer-section.
 import { MatIconModule } from '@angular/material/icon';
 import { ExperienceSectionComponent } from './components/experience-section/experience-section.component';
 import { LocationSectionComponent } from './components/location-section/location-section.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @Component({
   selector: 'app-root',
@@ -22,6 +23,7 @@ import { LocationSectionComponent } from './components/location-section/location
     MatIconModule,
     ExperienceSectionComponent,
     LocationSectionComponent,
+    FooterComponent,
   ],
 })
 export class AppComponent {

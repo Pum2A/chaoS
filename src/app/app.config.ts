@@ -8,6 +8,11 @@ import {
 import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import {
+  provideHttpClient,
+  withFetch,
+  withJsonpSupport,
+} from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -15,6 +20,9 @@ export const appConfig: ApplicationConfig = {
     provideClientHydration(),
     provideNoopAnimations(),
     provideAnimationsAsync(),
-    provideAnimations(), provideAnimationsAsync(), provideAnimationsAsync(),
+    provideAnimations(),
+    provideHttpClient(),
+    // provideHttpClient(withFetch(), withJsonpSupport()),
+    // withFetch(),
   ],
 };

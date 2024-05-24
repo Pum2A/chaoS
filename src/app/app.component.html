@@ -1,8 +1,17 @@
-<app-topbar (menuToggle)="isMenuOpen = !isMenuOpen"></app-topbar>
+<app-topbar (categorySelected)="onCategorySelected($event)"></app-topbar>
 <app-sidebar [isOpen]="isMenuOpen"></app-sidebar>
-<app-welcome-section></app-welcome-section>
-<app-offer-section></app-offer-section>
-<app-experience-section></app-experience-section>
-<app-location-section></app-location-section>
+
+<div *ngIf="!selectedCategory">
+  <app-welcome-section></app-welcome-section>
+  <app-offer-section></app-offer-section>
+  <app-experience-section></app-experience-section>
+  <app-location-section></app-location-section>
+</div>
+
+<div *ngIf="selectedCategory">
+  <app-data [category]="selectedCategory"></app-data>
+  <button (click)="backToHome()">Back to Home</button>
+</div>
+
 <app-footer></app-footer>
 <router-outlet></router-outlet>

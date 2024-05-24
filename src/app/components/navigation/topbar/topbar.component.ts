@@ -21,7 +21,7 @@ import { MaterialIcon } from 'material-icons';
       <nav>
         <ul>
           @for (product of products; track product.id){
-          <li>
+          <li (click)="selectCategory('{{product.category}}')">
             <a (click)="toggleVisibility(product)" #greeting>
               {{ product.name }}
             </a>
@@ -33,14 +33,6 @@ import { MaterialIcon } from 'material-icons';
         <i id="menu" class="fa-solid fa-bars" (click)="toggleMenu()"></i>
       </nav>
     </div>
-
-    @for (product of products; track product.id){ @if(product.visibility){
-    <div class="series-list " @flyInOut>
-      <a>{{ product.series[0] }}</a>
-      <a>{{ product.series[1] }}</a>
-      <a>{{ product.series[2] }}</a>
-    </div>
-    } }
   `,
   animations: [
     trigger('flyInOut', [
@@ -89,5 +81,11 @@ export class TopbarComponent {
       this.open.emit(selectedProduct.visibility);
       console.log('click');
     }
+  }
+
+  @Output() categorySelected: EventEmitter<string> = new EventEmitter<string>();
+
+  selectCategory(category: string) {
+    this.categorySelected.emit(category);
   }
 }

@@ -14,17 +14,30 @@ import { debounceTime, Subject } from 'rxjs';
   standalone: true,
   imports: [CommonModule],
   template: `
-    <ul *ngIf="items.length > 0; else noData">
-      <li *ngFor="let item of items">
-        <div>{{ item.name }}</div>
-        <div>{{ item.category }}</div>
-        <div>{{ item.price }}</div>
-        <div>{{ item.description }}</div>
-      </li>
-    </ul>
-    <ng-template #noData>
-      <p>No data available for the selected category.</p>
-    </ng-template>
+    <div class="wrapper">
+      <div class="grid-container">
+        @if (items.length > 0) { @for (item of items; track item.id &&
+        item.name) {
+        <ul>
+          <div class="image-container"></div>
+          <li class="data-content">
+            <div>Name: {{ item.name }}</div>
+            <div>Category: {{ item.category }}</div>
+            <div>Price: {{ item.price }} $</div>
+            <div>About Product: {{ item.description }}</div>
+          </li>
+          <div class="btn-container">
+            <button>Add to card</button>
+          </div>
+        </ul>
+        } } @else {
+
+        <ng-template #noData>
+          <p>No data available for the selected category.</p>
+        </ng-template>
+        }
+      </div>
+    </div>
   `,
 
   styleUrl: './data.component.scss',

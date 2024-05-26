@@ -13,12 +13,13 @@ export const routes: Routes = [
         path: '',
         component: WelcomeSectionComponent,
       },
+      { path: 'products/:category', component: DataComponent },
     ],
   },
 
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: '/home',
     pathMatch: 'full',
   },
   { path: '**', component: PageNotFoundComponent },

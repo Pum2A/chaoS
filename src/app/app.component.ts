@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterModule, RouterOutlet } from '@angular/router';
 import { SidebarComponent } from './components/navigation/sidebar/sidebar.component';
 import { TopbarComponent } from './components/navigation/topbar/topbar.component';
 import { WelcomeSectionComponent } from './components/welcome-section/welcome-section.component';
@@ -11,6 +11,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { DataComponent } from './components/data/data.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { LazyLoadImageDirective, LazyLoadImageModule } from 'ng-lazyload-image';
 
 @Component({
   selector: 'app-root',
@@ -30,6 +31,8 @@ import { CommonModule } from '@angular/common';
     DataComponent,
     CommonModule,
     DataComponent,
+    LazyLoadImageModule,
+    RouterModule,
   ],
 })
 export class AppComponent {

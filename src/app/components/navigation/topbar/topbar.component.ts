@@ -10,6 +10,7 @@ import {
   animate,
 } from '@angular/animations';
 import { MaterialIcon } from 'material-icons';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-topbar',
@@ -21,7 +22,12 @@ import { MaterialIcon } from 'material-icons';
       <nav>
         <ul>
           @for (product of products; track product.id){
-          <li (click)="selectCategory('{{product.category}}')">
+          <li
+            (click)="
+              navigateToCategory('{{product.category}}');
+              selectCategory('{{product.category}}')
+            "
+          >
             <a (click)="toggleVisibility(product)" #greeting>
               {{ product.name }}
             </a>
@@ -59,6 +65,7 @@ export class TopbarComponent {
   @Output() close: EventEmitter<any> = new EventEmitter();
 
   @Output() menuToggle = new EventEmitter<void>();
+  constructor(private router: Router) {}
 
   toggleMenu() {
     this.menuToggle.emit();
@@ -87,5 +94,9 @@ export class TopbarComponent {
 
   selectCategory(category: string) {
     this.categorySelected.emit(category);
+  }
+
+  navigateToCategory(category: string) {
+    this.router.navigate(['/products', category]);
   }
 }

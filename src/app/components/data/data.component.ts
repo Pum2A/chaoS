@@ -2,12 +2,14 @@ import {
   Component,
   Input,
   OnChanges,
+  OnInit,
   SimpleChanges,
   inject,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { debounceTime, Subject } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-data',
@@ -19,7 +21,19 @@ import { debounceTime, Subject } from 'rxjs';
         @if (items.length > 0) { @for (item of items; track item.id &&
         item.name) {
         <ul>
-          <div class="image-container"></div>
+          <div class="image-container">
+            @defer(on viewport){
+
+            <img
+              src="{{ item.product_url }}"
+              alt="{{ item.name }}"
+              [height]="400"
+              [width]="400"
+            />
+            } @placeholder{
+            <div>Loading...</div>
+            }
+          </div>
           <li class="data-content">
             <div>Name: {{ item.name }}</div>
             <div>Category: {{ item.category }}</div>
@@ -42,16 +56,24 @@ import { debounceTime, Subject } from 'rxjs';
 
   styleUrl: './data.component.scss',
 })
-export class DataComponent {
+export class DataComponent implements OnInit {
   private http = inject(HttpClient);
   items: any[] = [];
   private categorySubject = new Subject<string>();
+  private route = inject(ActivatedRoute);
 
   @Input() category: string = '';
 
   constructor() {
     this.categorySubject.pipe(debounceTime(300)).subscribe((category) => {
       this.fetchData(category);
+    });
+  }
+
+  ngOnInit() {
+    this.route.params.subscribe((params) => {
+      this.category = params['category'];
+      this.fetchData(this.category);
     });
   }
 

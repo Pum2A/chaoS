@@ -1,17 +1,22 @@
-<app-topbar (categorySelected)="onCategorySelected($event)"></app-topbar>
-<app-sidebar [isOpen]="isMenuOpen"></app-sidebar>
+<app-topbar (categorySelected)="onCategorySelected($event)" />
+<app-sidebar [isOpen]="isMenuOpen" />
 
 <div *ngIf="!selectedCategory">
-  <app-welcome-section></app-welcome-section>
-  <app-offer-section></app-offer-section>
-  <app-experience-section></app-experience-section>
-  <app-location-section></app-location-section>
+  @defer (on viewport) {
+  <app-welcome-section />
+  <app-offer-section />
+  <app-experience-section />
+  <app-location-section />
+
+  } @placeholder {
+  <p>loading...</p>
+  }
 </div>
 
 <div *ngIf="selectedCategory">
-  <app-data [category]="selectedCategory"></app-data>
+  <app-data [category]="selectedCategory" />
   <button (click)="backToHome()">Back to Home</button>
 </div>
 
-<app-footer></app-footer>
-<router-outlet></router-outlet>
+<app-footer />
+<router-outlet />

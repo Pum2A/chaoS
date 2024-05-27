@@ -37,9 +37,8 @@ ul {
 }
 
 img {
-  background-position: center;
-  background-image: cover;
   object-fit: cover;
+  aspect-ratio: 1;
 }
 
 .data-content {

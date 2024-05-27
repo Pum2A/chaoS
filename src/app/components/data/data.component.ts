@@ -10,46 +10,34 @@ import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { debounceTime, Subject } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
+import { NgOptimizedImage } from '@angular/common';
+import { Items } from '../../interfaces/items';
 
 @Component({
   selector: 'app-data',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, NgOptimizedImage],
   template: `
     <div class="wrapper">
       <div class="grid-container">
-        @if (items.length > 0) { @for (item of items; track item.id &&
-        item.name) {
+        @for (item of items; track item.id && item.name){ @if (items.length > 0)
+        {
         <ul>
           <div class="image-container">
-            @defer(on viewport){
-
-            <img
-              src="{{ item.product_url }}"
-              alt="{{ item.name }}"
-              [height]="400"
-              [width]="400"
-            />
-            } @placeholder{
-            <div>Loading...</div>
-            }
+            <img [ngSrc]="item.product_url" width="400" height="400" />
           </div>
           <li class="data-content">
             <div>Name: {{ item.name }}</div>
             <div>Category: {{ item.category }}</div>
             <div>Price: {{ item.price }} $</div>
             <div>About Product: {{ item.description }}</div>
+            {{ item.product_url }}
           </li>
           <div class="btn-container">
             <button>Add to card</button>
           </div>
         </ul>
-        } } @else {
-
-        <ng-template #noData>
-          <p>No data available for the selected category.</p>
-        </ng-template>
-        }
+        } }
       </div>
     </div>
   `,
@@ -58,11 +46,11 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class DataComponent implements OnInit {
   private http = inject(HttpClient);
-  items: any[] = [];
+  items: Items[] = [];
   private categorySubject = new Subject<string>();
   private route = inject(ActivatedRoute);
-
   @Input() category: string = '';
+  @Input() product_url: string = '';
 
   constructor() {
     this.categorySubject.pipe(debounceTime(300)).subscribe((category) => {

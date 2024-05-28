@@ -1,5 +1,5 @@
 import { ApplicationConfig } from '@angular/core';
-import { provideRouter } from '@angular/router';
+import { provideRouter, withComponentInputBinding } from '@angular/router';
 import {
   provideAnimations,
   provideNoopAnimations,
@@ -16,12 +16,13 @@ import {
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideRouter(routes),
+    provideRouter(routes, withComponentInputBinding()),
+
     provideClientHydration(),
     provideNoopAnimations(),
     provideAnimationsAsync(),
     provideAnimations(),
-    provideHttpClient(),
+    provideHttpClient(withFetch(), withJsonpSupport()),
     // provideHttpClient(withFetch(), withJsonpSupport()),
     // withFetch(),
   ],

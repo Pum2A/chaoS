@@ -11,7 +11,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { DataComponent } from './components/data/data.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
-import { LazyLoadImageDirective, LazyLoadImageModule } from 'ng-lazyload-image';
+import { ComputerComponent } from './components/products-type/computer/computer.component';
 
 @Component({
   selector: 'app-root',
@@ -31,20 +31,16 @@ import { LazyLoadImageDirective, LazyLoadImageModule } from 'ng-lazyload-image';
     DataComponent,
     CommonModule,
     DataComponent,
-    LazyLoadImageModule,
     RouterModule,
+    ComputerComponent,
   ],
 })
 export class AppComponent {
   title = 'chaoS';
   isMenuOpen = false;
-
-  selectedCategory: string | null = null;
+  selectedCategory: string = '';
 
   onCategorySelected(category: string) {
     this.selectedCategory = category;
-  }
-  backToHome() {
-    this.selectedCategory = null;
   }
 }

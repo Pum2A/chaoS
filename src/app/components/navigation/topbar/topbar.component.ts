@@ -1,5 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  inject,
+  Input,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import jsonData from '../../../../assets/products/test.json';
 import {
@@ -10,33 +17,27 @@ import {
   animate,
 } from '@angular/animations';
 import { MaterialIcon } from 'material-icons';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { DataService } from '../../../services/data.service';
+import { Items } from '../../../interfaces/items';
 
 @Component({
   selector: 'app-topbar',
   standalone: true,
-  imports: [CommonModule, HttpClientModule],
+  imports: [CommonModule, HttpClientModule, RouterLink],
   template: `
     <div class="top">
-      <div class="logo">chaoS</div>
+      <div class="logo" routerLink="">chaoS</div>
       <nav>
         <ul>
-          @for (product of products; track product.id){
-          <li
-            (click)="
-              navigateToCategory('{{product.category}}');
-              selectCategory('{{product.category}}')
-            "
-          >
-            <a (click)="toggleVisibility(product)" #greeting>
-              {{ product.name }}
-            </a>
-          </li>
-
-          }
+          <li><a routerLink="/home">Home</a></li>
+          <li><a (click)="navigateToCategory('laptop')">Laptops</a></li>
+          <li><a (click)="navigateToCategory('computer')">Computers</a></li>
+          <li><a (click)="navigateToCategory('phone')">Phones</a></li>
+          <li><a (click)="navigateToCategory('tablet')">Tablets</a></li>
+          <li><a routerLink="/support">Support</a></li>
+          <li><a routerLink="/contact">Contact</a></li>
         </ul>
-
-        <i id="menu" class="fa-solid fa-bars" (click)="toggleMenu()"></i>
       </nav>
     </div>
   `,
@@ -56,14 +57,10 @@ import { Router } from '@angular/router';
   styleUrl: './topbar.component.scss',
 })
 export class TopbarComponent {
-  products: any[] = jsonData.products.map((product) => ({
-    ...product,
-    visibility: false,
-  }));
-
   @Output() open: EventEmitter<any> = new EventEmitter();
   @Output() close: EventEmitter<any> = new EventEmitter();
-
+  @Output() items: Items[] = [];
+  @Input() category: string = '';
   @Output() menuToggle = new EventEmitter<void>();
   constructor(private router: Router) {}
 
@@ -71,32 +68,7 @@ export class TopbarComponent {
     this.menuToggle.emit();
   }
 
-  toggleVisibility(selectedProduct: { visibility: boolean }) {
-    // if product is visible then toggle his visibility
-    if (selectedProduct.visibility) {
-      selectedProduct.visibility = false;
-      this.close.emit(selectedProduct.visibility);
-      console.log('click zły');
-    } else {
-      // all products visibility is false
-      this.products.forEach((product) => {
-        product.visibility = false;
-      });
-
-      // changing his visibility to true
-      selectedProduct.visibility = true;
-      this.open.emit(selectedProduct.visibility);
-      console.log('click');
-    }
-  }
-
-  @Output() categorySelected: EventEmitter<string> = new EventEmitter<string>();
-
-  selectCategory(category: string) {
-    this.categorySelected.emit(category);
-  }
-
   navigateToCategory(category: string) {
-    this.router.navigate(['/products', category]);
+    this.router.navigate(['/category'], { queryParams: { category } });
   }
 }

@@ -1,3 +1,5 @@
+@use "main" as *;
+
 @use "scss-reset/reset";
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
@@ -20,4 +22,12 @@ body {
 }
 body {
   margin: 0;
+}
+
+::-webkit-scrollbar {
+  width: 1rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $color-buttons-contrast;
 }

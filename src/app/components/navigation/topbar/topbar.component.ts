@@ -31,10 +31,10 @@ import { Items } from '../../../interfaces/items';
       <nav>
         <ul>
           <li><a routerLink="/home">Home</a></li>
-          <li><a (click)="navigateToCategory('laptop')">Laptops</a></li>
-          <li><a (click)="navigateToCategory('computer')">Computers</a></li>
-          <li><a (click)="navigateToCategory('phone')">Phones</a></li>
-          <li><a (click)="navigateToCategory('tablet')">Tablets</a></li>
+          <li (click)="navigateToCategory('laptop')"><a>Laptops</a></li>
+          <li (click)="navigateToCategory('computer')"><a>Computers</a></li>
+          <li (click)="navigateToCategory('phone')"><a>Phones</a></li>
+          <li (click)="navigateToCategory('tablet')"><a>Tablets</a></li>
           <li><a routerLink="/support">Support</a></li>
           <li><a routerLink="/contact">Contact</a></li>
         </ul>

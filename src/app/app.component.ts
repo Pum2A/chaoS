@@ -8,8 +8,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { ExperienceSectionComponent } from './components/experience-section/experience-section.component';
 import { LocationSectionComponent } from './components/location-section/location-section.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { DataComponent } from './components/data/data.component';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { ComputerComponent } from './components/products-type/computer/computer.component';
 
@@ -28,9 +26,7 @@ import { ComputerComponent } from './components/products-type/computer/computer.
     ExperienceSectionComponent,
     LocationSectionComponent,
     FooterComponent,
-    DataComponent,
     CommonModule,
-    DataComponent,
     RouterModule,
     ComputerComponent,
   ],

@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { DataComponent } from '../../data/data.component';
+import { CategoryComponent } from '../../category/category.component';
 
 @Component({
   selector: 'app-laptop',
   standalone: true,
-  imports: [DataComponent],
-  templateUrl: './laptop.component.html',
+  imports: [CategoryComponent],
+  template: `<app-category></app-category>`,
   styleUrl: './laptop.component.scss',
 })
 export class LaptopComponent {}

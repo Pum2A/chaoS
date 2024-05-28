@@ -63,11 +63,16 @@ export class CategoryComponent implements OnInit {
   }
 
   ngOnDestroy() {
-    this.queryParamSubscription.unsubscribe();
-    this.dataSubscription.unsubscribe();
+    if (this.queryParamSubscription) {
+      this.queryParamSubscription.unsubscribe();
+    }
+    if (this.dataSubscription) {
+      this.dataSubscription.unsubscribe();
+    }
   }
 
   private filterItems() {
+    console.log('Filtering items with category:', this.category);
     if (this.category) {
       this.filteredItems = this.items.filter(
         (item) => item.category.toLowerCase() === this.category.toLowerCase()

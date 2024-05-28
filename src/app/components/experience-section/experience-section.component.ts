@@ -70,7 +70,7 @@ import { NgIconComponent, provideIcons } from '@ng-icons/core';
                 initiate a return, please contact our customer support team.
               </p>
               <div class="btn-container">
-                <button>Check</button>
+                <!-- <button>Check</button> -->
               </div>
             </div>
             <div class="block">
@@ -85,7 +85,7 @@ import { NgIconComponent, provideIcons } from '@ng-icons/core';
                 behind our products and guarantee your satisfaction.
               </p>
               <div class="btn-container">
-                <button id="second-check-button">Check</button>
+                <!-- <button id="second-check-button">Check</button> -->
               </div>
             </div>
           </div>

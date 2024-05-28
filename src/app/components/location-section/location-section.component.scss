@@ -10,10 +10,6 @@
   }
 }
 
-.h5-container {
-  direction: rtl;
-}
-
 .h5-container h5 {
   font-size: 6rem;
   color: #fff;
@@ -23,15 +19,15 @@
 }
 
 .block-container {
-  background-color: #111111;
+  background-color: #20242c;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 0rem 2rem;
-  border-left: 3px solid #c31c26;
+  border-bottom: 5px solid #e8317e;
   height: 60vh;
-  border-radius: 2rem;
+  // border-radius: 2rem;
 }
 
 iframe {

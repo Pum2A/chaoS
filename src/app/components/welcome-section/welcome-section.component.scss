@@ -12,7 +12,7 @@
 }
 
 .welcome-content p {
-  color: #c31c26;
+  color: #e8317e;
   font-weight: 800;
   font-size: 3rem;
 }
@@ -32,6 +32,7 @@ h3 {
   font-weight: 200;
   font-size: 3rem;
   line-height: 100%;
+  color: #cccccc;
 }
 
 img {
@@ -51,18 +52,20 @@ button {
   border-radius: 2rem;
   font-size: 1.6rem;
   border: none;
-  background-color: #c31c26;
   color: #fff;
+  // border: 1px solid #fff;
+  background-color: #e8317e;
   font-family: "Roboto", sans-serif !important;
   margin: 0.5rem 0rem;
-  font-weight: 100;
+  font-weight: 500;
+  letter-spacing: 0.1rem;
   cursor: pointer;
 }
 #products-button {
   margin: 0rem 2rem;
-  background-color: #000;
-  border: 1px solid #c31c26;
-  box-shadow: 0px 0px 6px #c31c26;
+  background-color: inherit;
+  color: #fff;
+  border: 1px solid #fff;
 }
 
 h4 {

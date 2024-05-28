@@ -19,10 +19,10 @@ import { Subscription } from 'rxjs';
               <img [ngSrc]="item.product_url" width="400" height="400" />
             </div>
             <li class="data-content">
-              <div>{{ item.name }}</div>
-              <div>Category: {{ item.category }}</div>
-              <div class="item-price">Price: {{ item.price }} $</div>
-              <div>About Product: {{ item.description }}</div>
+              <p class="item-name">{{ item.name }}</p>
+              <p class="items">Category: {{ item.category }}</p>
+              <p class="items">Price: {{ item.price }} $</p>
+              <p class="items">About Product: {{ item.description }}</p>
             </li>
             <div class="btn-container">
               <button>Add to cart</button>

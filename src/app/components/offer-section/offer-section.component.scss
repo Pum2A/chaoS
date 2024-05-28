@@ -4,9 +4,9 @@
   padding: 0rem 2rem 20rem 2rem;
 }
 .electronic-offer-text {
-  font-size: 6rem;
+  font-size: 5rem;
   padding: 4rem 0rem;
-  text-align: center;
+  // text-align: center;
   font-weight: 800;
   line-height: 100%;
 }
@@ -14,12 +14,12 @@
 .blocks-wrapper {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+  gap: 20px;
   grid-auto-rows: minmax(300px, auto);
 }
 
 .block {
-  background-color: #1d1d1d;
+  background-color: #20242c;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -40,7 +40,7 @@
 }
 .block a {
   font-size: 1.8rem;
-  color: #c31c26;
+  color: #e8317e;
   padding: 1rem 0rem;
   text-transform: uppercase;
   font-weight: 800;
@@ -52,11 +52,11 @@
 }
 ng-icon {
   font-size: 5rem;
-  color: #c31c26;
+  color: #e8317e;
 }
 
 .block:hover {
-  background-color: #c31c26;
+  background-color: #9c2456;
 
   .a-cont a {
     color: #fff;

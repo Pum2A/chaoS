@@ -1,3 +1,4 @@
+@use "main" as *;
 .wrapper {
   max-width: 1460px;
   margin-inline: auto;
@@ -19,13 +20,13 @@
 }
 
 .block-container {
-  background-color: #20242c;
+  background-color: $main-block-color;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 0rem 2rem;
-  border-bottom: 5px solid #e8317e;
+  border-bottom: 5px solid $color-buttons-contrast;
   height: 60vh;
   // border-radius: 2rem;
 }
@@ -37,6 +38,6 @@ iframe {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  border: 3px solid #fff;
+  border: 3px solid $main-color-text;
   border-radius: 2rem;
 }

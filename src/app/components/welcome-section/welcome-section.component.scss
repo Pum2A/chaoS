@@ -1,3 +1,5 @@
+@use "main" as *;
+
 .wrapper {
   max-width: 1460px;
   margin-inline: auto;
@@ -12,7 +14,7 @@
 }
 
 .welcome-content p {
-  color: #e8317e;
+  color: $color-buttons-contrast;
   font-weight: 800;
   font-size: 3rem;
 }
@@ -22,6 +24,7 @@
   line-height: 115%;
   letter-spacing: 0.5rem;
   font-weight: 600;
+  color: $main-color-text;
 }
 
 .welcome-content-text {
@@ -32,7 +35,7 @@ h3 {
   font-weight: 200;
   font-size: 3rem;
   line-height: 100%;
-  color: #cccccc;
+  color: $second-color-text;
 }
 
 img {
@@ -54,7 +57,7 @@ button {
   border: none;
   color: #fff;
   // border: 1px solid #fff;
-  background-color: #e8317e;
+  background-color: $color-buttons-contrast;
   font-family: "Roboto", sans-serif !important;
   margin: 0.5rem 0rem;
   font-weight: 500;
@@ -64,8 +67,8 @@ button {
 #products-button {
   margin: 0rem 2rem;
   background-color: inherit;
-  color: #fff;
-  border: 1px solid #fff;
+  color: $main-color-text;
+  border: 1px solid $main-color-text;
 }
 
 h4 {

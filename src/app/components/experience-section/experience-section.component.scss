@@ -1,3 +1,4 @@
+@use "main" as *;
 .wrapper {
   max-width: 1460px;
   margin-inline: auto;
@@ -12,7 +13,7 @@
 
 .wrapper h5 {
   font-size: 5rem;
-  color: #fff;
+  color: $main-color-text;
   font-weight: 800;
   padding: 10rem 0rem;
   line-height: 100%;
@@ -33,7 +34,7 @@
 }
 
 .left-block {
-  background-color: #20242c;
+  background-color: $main-block-color;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -47,6 +48,7 @@
 .left-block p {
   padding: 3rem 2rem;
   font-weight: 800;
+
   // min-width: 20rem;
 }
 
@@ -83,14 +85,14 @@ p {
   }
 }
 .block-container span {
-  color: #e8317e;
+  color: $color-buttons-contrast;
   line-height: 125%;
 }
 
 .experience-icons {
   padding: 0rem 4rem;
   font-size: 4rem;
-  color: #e8317e;
+  color: $color-buttons-contrast;
 }
 
 @media (max-width: 768px) {
@@ -121,7 +123,7 @@ button {
   font-family: "Roboto", sans-serif !important;
   margin: 0.5rem 0rem;
   font-weight: 100;
-  background-color: #20242c;
+  background-color: $main-block-color;
   color: #fff;
   // border: 1px solid #e8317e;
   cursor: pointer;
@@ -132,7 +134,7 @@ button {
 }
 .blocks-wrapper .block {
   width: 100%;
-  background-color: #20242c;
+  background-color: $main-block-color;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -160,7 +162,7 @@ button {
   font-size: 2.5rem;
   cursor: pointer;
   font-weight: 800;
-  color: #e8317e;
+  color: $color-buttons-contrast;
   line-height: 100%;
 }
 .block .a-cont {
@@ -170,7 +172,7 @@ button {
 .block ng-icon {
   margin: 1rem 2rem;
   font-size: 5rem;
-  color: #e8317e;
+  color: $color-buttons-contrast;
 }
 .block-name {
   width: 100%;

@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, computed, inject, input } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { SidebarComponent } from './components/navigation/sidebar/sidebar.component';
 import { TopbarComponent } from './components/navigation/topbar/topbar.component';
@@ -10,6 +10,8 @@ import { LocationSectionComponent } from './components/location-section/location
 import { FooterComponent } from './components/footer/footer.component';
 import { CommonModule } from '@angular/common';
 import { ComputerComponent } from './components/products-type/computer/computer.component';
+import { provideIcons } from '@ng-icons/core';
+import { bootstrapCart3 } from '@ng-icons/bootstrap-icons';
 
 @Component({
   selector: 'app-root',
@@ -30,6 +32,8 @@ import { ComputerComponent } from './components/products-type/computer/computer.
     RouterModule,
     ComputerComponent,
   ],
+  viewProviders: [provideIcons({ bootstrapCart3  })]
+
 })
 export class AppComponent {
   title = 'chaoS';
@@ -39,4 +43,10 @@ export class AppComponent {
   onCategorySelected(category: string) {
     this.selectedCategory = category;
   }
+
+  age = input(5);
+  // age multiplied by two.
+  ageMultiplied = computed(() => this.age() * 2);               
+
+  
 }

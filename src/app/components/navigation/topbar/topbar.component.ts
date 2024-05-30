@@ -18,13 +18,14 @@ import {
 } from '@angular/animations';
 import { MaterialIcon } from 'material-icons';
 import { Router, RouterLink } from '@angular/router';
-import { DataService } from '../../../services/data.service';
+import { DataService } from '../../../services/data/data.service';
 import { Items } from '../../../interfaces/items';
+import { NgIconComponent } from '@ng-icons/core';
 
 @Component({
   selector: 'app-topbar',
   standalone: true,
-  imports: [CommonModule, HttpClientModule, RouterLink],
+  imports: [CommonModule, HttpClientModule, RouterLink, NgIconComponent],
   template: `
     <div class="top">
       <div class="logo" routerLink="">chaoS</div>
@@ -37,6 +38,7 @@ import { Items } from '../../../interfaces/items';
           <li (click)="navigateToCategory('tablet')"><a>Tablets</a></li>
           <li><a routerLink="/support">Support</a></li>
           <li><a routerLink="/contact">Contact</a></li>
+          <ng-icon class="shopping-cart" name="bootstrapCart3"> </ng-icon>
         </ul>
       </nav>
     </div>

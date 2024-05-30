@@ -1,7 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { DataService } from '../../services/data.service';
+import { DataService } from '../../services/data/data.service';
 import { Items } from '../../interfaces/items';
 import { NgOptimizedImage } from '@angular/common';
 import { Subscription } from 'rxjs';
@@ -13,7 +13,7 @@ import { Subscription } from 'rxjs';
   template: `
     <div class="wrapper">
       <div class="grid-container">
-        <div *ngFor="let item of filteredItems">
+        <div class="content-box" *ngFor="let item of filteredItems">
           <ul>
             <div class="image-container">
               <img [ngSrc]="item.product_url" width="400" height="400" />

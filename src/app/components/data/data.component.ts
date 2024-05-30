@@ -15,7 +15,7 @@ import { debounceTime, map, Subject } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { NgOptimizedImage } from '@angular/common';
 import { Items } from '../../interfaces/items';
-import { DataService } from '../../services/data.service';
+import { DataService } from '../../services/data/data.service';
 
 @Component({
   selector: 'app-data',

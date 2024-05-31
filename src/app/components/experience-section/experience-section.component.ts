@@ -28,54 +28,74 @@ import { NgIconComponent, provideIcons } from '@ng-icons/core';
         <h5>Company experience</h5>
       </div>
       <section class="experience-section">
-        <div class="left-block">
-          <div class="block-container">
-            <ng-icon
-              name="bootstrapReception4"
-              class="experience-icons"
-            ></ng-icon>
-            <p>Position: <span>1</span></p>
+        <div class="grid-container">
+          <div class="content-box">
+            <ul>
+              <li class="data-content">
+                <ng-icon
+                  name="bootstrapReception4"
+                  class="experience-icons"
+                ></ng-icon>
+                <p>Position: <span>1</span></p>
+              </li>
+            </ul>
           </div>
-          <div class="block-container">
-            <ng-icon
-              name="bootstrapArrowUpRight"
-              class="experience-icons"
-            ></ng-icon>
-            <p>Years: <span>12</span></p>
+          <div class="content-box">
+            <ul>
+              <li class="data-content">
+                <ng-icon
+                  name="bootstrapArrowUpRight"
+                  class="experience-icons"
+                ></ng-icon>
+                <p>Years: <span>12</span></p>
+              </li>
+            </ul>
           </div>
-          <div class="block-container">
-            <ng-icon name="bootstrapMapFill" class="experience-icons"></ng-icon>
-            <p>Location: <span>Cracow</span></p>
+          <div class="content-box">
+            <ul>
+              <li class="data-content">
+                <ng-icon
+                  name="bootstrapMapFill"
+                  class="experience-icons"
+                ></ng-icon>
+                <p>Location: <span>Cracow</span></p>
+              </li>
+            </ul>
           </div>
-          <div class="block-container">
-            <ng-icon
-              name="bootstrapCollectionFill"
-              class="experience-icons"
-            ></ng-icon>
-            <p>Responsibilities: <span>Electronics</span></p>
+
+          <div class="content-box">
+            <ul>
+              <li class="data-content">
+                <ng-icon
+                  name="bootstrapCollectionFill"
+                  class="experience-icons"
+                ></ng-icon>
+                <p>Responsibilities: <span>Electronics</span></p>
+              </li>
+            </ul>
           </div>
-        </div>
-        <div class="right-block">
-          <div class="blocks-wrapper">
-            <div class="block">
-              <ng-icon name="bootstrapSignTurnLeftFill"></ng-icon>
-              <div class="block-name">
-                <span>14 day return policy</span>
-              </div>
-              <p>
-                We offer a 14-day return policy for all our products. If you are
-                not satisfied with your purchase, you can return it within 14
-                days of receiving it for a full refund. Please note that the
-                item must be in its original condition and packaging. To
-                initiate a return, please contact our customer support team.
-              </p>
-              <div class="btn-container">
-                <!-- <button>Check</button> -->
-              </div>
-            </div>
-            <div class="block">
-              <ng-icon name="bootstrapQuestionCircleFill"></ng-icon>
-              <div class="block-name">
+          <div class="content-box">
+            <ul>
+              <li class="data-content">
+                <ng-icon name="bootstrapSignTurnLeftFill"></ng-icon>
+                <div class="block-name">
+                  <span>14 day return policy</span>
+                </div>
+                <p>
+                  We offer a 14-day return policy for all our products. If you
+                  are not satisfied with your purchase, you can return it within
+                  14 days of receiving it for a full refund. Please note that
+                  the item must be in its original condition and packaging. To
+                  initiate a return, please contact our customer support team.
+                </p>
+              </li>
+            </ul>
+          </div>
+          <div class="content-box">
+            <ul>
+              <li class="data-content">
+                <ng-icon name="bootstrapSignTurnLeftFill"></ng-icon>
+                <div class="block-name">
                 <span>100% Quality Guarantee</span>
               </div>
               <p>
@@ -84,12 +104,14 @@ import { NgIconComponent, provideIcons } from '@ng-icons/core';
                 of our offerings meets rigorous quality standards. We stand
                 behind our products and guarantee your satisfaction.
               </p>
-              <div class="btn-container">
-                <!-- <button id="second-check-button">Check</button> -->
-              </div>
-            </div>
+              </li>
+            </ul>
           </div>
         </div>
+
+       
+
+        
       </section>
     </div>
   `,

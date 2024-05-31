@@ -2,12 +2,12 @@
 .wrapper {
   max-width: 1460px;
   margin-inline: auto;
-  padding: 10rem 0rem;
+  padding: 10rem 4rem;
 
   @media (max-width: 768px) {
     /* Styles for smaller screens */
     max-width: 100%;
-    padding: 0 20px;
+    padding: 0rem 4rem;
   }
 }
 
@@ -21,161 +21,92 @@
   // text-align: center;
 }
 
-.experience-section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 3rem;
+
+.wrapper {
+  max-width: 1460px;
+  margin-inline: auto;
+  padding: 10rem 0rem;
 
   @media (max-width: 768px) {
     /* Styles for smaller screens */
-    flex-direction: column;
+    max-width: 100%;
+    padding: 0 20px;
   }
 }
 
-.left-block {
-  background-color: $main-block-color;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  padding: 0rem 2rem;
-  border-radius: 2rem;
-
-  // justify-content: space-evenly;
-  // align-items: center;
+.item-name {
+  font-weight: 800 !important;
+  font-size: 2.4rem;
+  padding: 2rem 0rem;
+  color: $main-color-text;
 }
+.content-box{
+margin: 0 auto;
+width: 100%;
+background-color: green;
 
-.left-block p {
-  padding: 3rem 2rem;
-  font-weight: 800;
+;}
 
-  // min-width: 20rem;
-}
+.grid-container {
+  // background-color: #fff;
+  // max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  gap: 4rem;
+  
+  
+  
+    @media(max-width: 1320px) {
+      grid-template-rows: repeat(2, 1fr);
+      grid-template-columns: repeat(2, 1fr);
+    }
+  @media (max-width: 908px) {
+    grid-template-rows: repeat(1, 1fr);
+    grid-template-columns: repeat(1, 1fr);
 
-.right-block {
-  width: 100%;
-  // padding: 0rem 2rem;
-}
-@media (max-width: 768px) {
-  .left-block {
-    flex-direction: column;
   }
-
-  .right-block {
-    flex-direction: column;
-    /* Styles for the content on the right side on smaller screens */
-  }
 }
-
 p {
   margin: 0;
-  // font-size: 4rem;
-}
-.block-container {
-  display: flex;
-  align-items: center;
-  font-weight: 800;
-  font-size: 3rem;
-  line-height: 125%;
+  padding: 0.2rem 0rem;
 }
 
-@media (max-width: 768px) {
-  .block-container p {
-    font-size: 2rem;
-  }
+.image-container {
+  min-height: 400px;
+  max-height: 400px;
+  width: 400px;
+  background-color: #111111;
 }
-.block-container span {
-  color: $color-buttons-contrast;
-  line-height: 125%;
-}
-
-.experience-icons {
-  padding: 0rem 4rem;
-  font-size: 4rem;
-  color: $color-buttons-contrast;
+ul {
+  list-style: none;
 }
 
-@media (max-width: 768px) {
-  .experience-icons {
-    padding: 0rem 0rem;
-    font-size: 3rem;
-  }
-}
-
-.blocks-wrapper {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  gap: 3rem;
-  grid-auto-rows: minmax(300px, auto);
-
-  @media (max-width: 768px) {
-    grid-template-columns: repeat(1, 1fr);
-  }
-}
-
-button {
-  width: 14rem;
-  height: 4.5rem;
-  outline: none;
+img {
+  // object-fit: cover;
+  // aspect-ratio: 1;
+  image-rendering: optimizeQuality;
   border-radius: 2rem;
-  font-size: 1.6rem;
-  border: none;
-  font-family: "Roboto", sans-serif !important;
-  margin: 0.5rem 0rem;
-  font-weight: 100;
-  background-color: $main-block-color;
+}
+
+.items {
+  color: $second-color-text;
+}
+
+.data-content {
+  list-style: none;
   color: #fff;
-  // border: 1px solid #e8317e;
-  cursor: pointer;
-  letter-spacing: 0.2rem;
-}
-.btn-container {
-  margin: 0rem 2rem;
-}
-.blocks-wrapper .block {
-  width: 100%;
-  background-color: $main-block-color;
+  font-size: 1.6rem;
+  // margin: 1rem 0rem;
+  min-height: 170px;
+  max-height: 170px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 2rem 0rem;
-  border-radius: 2rem;
+ 
 }
-
-.block span {
-  font-size: 3.5rem;
-  padding: 2rem 2rem;
-  font-weight: 800;
-  line-height: 100%;
-}
-
-.block p {
-  font-size: 1.6rem;
-  padding: 2rem 2rem;
+li div {
+  margin: 0.3rem 0rem;
   font-weight: 100;
-  line-height: 120%;
-  text-align: justify;
-}
-
-.block .a-cont a {
-  padding: 2rem 2rem;
-  font-size: 2.5rem;
-  cursor: pointer;
-  font-weight: 800;
-  color: $color-buttons-contrast;
-  line-height: 100%;
-}
-.block .a-cont {
-  padding: 2rem 0rem;
-}
-
-.block ng-icon {
-  margin: 1rem 2rem;
-  font-size: 5rem;
-  color: $color-buttons-contrast;
-}
-.block-name {
-  width: 100%;
-  align-items: center;
-  display: flex;
 }

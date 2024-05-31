@@ -5,4 +5,5 @@ export interface Items {
   price: string;
   description: string;
   product_url: string;
+  quantity: number;
 }

@@ -34,14 +34,7 @@ import { AddToCartDto } from '../../dtos/add-to-card.dto';
         </div>
       </div>
     </div>
-    <div *ngIf="addedProduct">
-      <h2>Product Added to Cart</h2>
-      <p>Name: {{ addedProduct.name }}</p>
-      <p>Category: {{ addedProduct.category }}</p>
-      <p>Price: {{ addedProduct.price }} $</p>
-      <p>Description: {{ addedProduct.description }}</p>
-      <img [ngSrc]="addedProduct.product_url" width="100" height="100" />
-    </div>
+   
   `,
   styleUrls: ['./category.component.scss'],
 })
@@ -65,7 +58,6 @@ export class CategoryComponent implements OnInit {
   ngOnInit() {
     this.queryParamSubscription = this.route.queryParams.subscribe((params) => {
       this.category = params['category'] || '';
-      console.log('Category from query params:', this.category);
       this.filterItems();
     });
 
@@ -73,7 +65,6 @@ export class CategoryComponent implements OnInit {
       .fetchData()
       .subscribe((data: Items[]) => {
         this.items = data;
-        console.log('Data fetched from DataService:', this.items);
         this.filterItems();
       });
   }
@@ -88,7 +79,6 @@ export class CategoryComponent implements OnInit {
   }
 
   private filterItems() {
-    console.log('Filtering items with category:', this.category);
     if (this.category) {
       this.filteredItems = this.items.filter(
         (item) => item.category.toLowerCase() === this.category.toLowerCase()
@@ -96,7 +86,6 @@ export class CategoryComponent implements OnInit {
     } else {
       this.filteredItems = this.items;
     }
-    console.log('Filtered items:', this.filteredItems);
   }
   
 
@@ -105,7 +94,6 @@ export class CategoryComponent implements OnInit {
     this.shoppingCartService.addToCart(addToCartDto).subscribe(
       (addedProduct: any) => {
         this.addedProduct = addedProduct;
-        console.log('Product added to cart:', this.addedProduct);
       },
       (error) => {
         console.error('Error adding product to cart:', error);

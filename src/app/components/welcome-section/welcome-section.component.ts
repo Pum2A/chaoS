@@ -1,19 +1,20 @@
+import { NgOptimizedImage } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-welcome-section',
   standalone: true,
-  imports: [],
+  imports: [NgOptimizedImage],
   template: `
     <div class="wrapper">
       <section class="welcome-section">
         <div class="welcome-content">
-          <p>Nice to see you!</p>
+          <p class="welcome-text">Nice to see you!</p>
           <h1>
             Welcome to
             <span> chaoS </span>
           </h1>
-          <h3>Your professional electronic team.</h3>
+          <h3 class="under-main-text">Your professional electronic team.</h3>
 
           <div class="buttons-container">
             <button>Learn more</button>
@@ -22,8 +23,10 @@ import { Component } from '@angular/core';
         </div>
         <div class="welcome-content-second">
           <img
-            src="../../../assets/images/main-page-image.webp"
+          [ngSrc]="mainImageUrl"
             alt="Main Page Image"
+            height="400"
+            width="800"
           />
         </div>
       </section>
@@ -32,4 +35,7 @@ import { Component } from '@angular/core';
 
   styleUrl: './welcome-section.component.scss',
 })
-export class WelcomeSectionComponent {}
+export class WelcomeSectionComponent {
+  mainImageUrl = 'assets/images/main-page-image2.webp'
+
+}

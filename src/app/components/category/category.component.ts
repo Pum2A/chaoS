@@ -1,10 +1,12 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { DataService } from '../../services/data/data.service';
 import { Items } from '../../interfaces/items';
 import { NgOptimizedImage } from '@angular/common';
 import { Subscription } from 'rxjs';
+import { ShoppingCartService } from '../../services/shopping-cart/shopping-cart.service';
+import { AddToCartDto } from '../../dtos/add-to-card.dto';
 
 @Component({
   selector: 'app-category',
@@ -23,13 +25,22 @@ import { Subscription } from 'rxjs';
               <p class="items">Category: {{ item.category }}</p>
               <p class="items">Price: {{ item.price }} $</p>
               <p class="items">About Product: {{ item.description }}</p>
+              <p>{{item._id}}</p>
             </li>
             <div class="btn-container">
-              <button>Add to cart</button>
+            <button (click)="addToCart(item)">Add to cart</button>
             </div>
           </ul>
         </div>
       </div>
+    </div>
+    <div *ngIf="addedProduct">
+      <h2>Product Added to Cart</h2>
+      <p>Name: {{ addedProduct.name }}</p>
+      <p>Category: {{ addedProduct.category }}</p>
+      <p>Price: {{ addedProduct.price }} $</p>
+      <p>Description: {{ addedProduct.description }}</p>
+      <img [ngSrc]="addedProduct.product_url" width="100" height="100" />
     </div>
   `,
   styleUrls: ['./category.component.scss'],
@@ -37,13 +48,18 @@ import { Subscription } from 'rxjs';
 export class CategoryComponent implements OnInit {
   items: Items[] = [];
   filteredItems: Items[] = [];
+  addedProduct: any = null;
+  products: Items[] = [];
+  @Input() _id: string = '';
+
   private category: string = '';
   private queryParamSubscription!: Subscription;
   private dataSubscription!: Subscription;
 
   constructor(
     private dataService: DataService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private shoppingCartService: ShoppingCartService
   ) {}
 
   ngOnInit() {
@@ -82,4 +98,19 @@ export class CategoryComponent implements OnInit {
     }
     console.log('Filtered items:', this.filteredItems);
   }
+  
+
+  addToCart(item: Items) {
+    const addToCartDto: AddToCartDto = { productId: item._id, quantity: 1 }; // assuming quantity is 1 for simplicity
+    this.shoppingCartService.addToCart(addToCartDto).subscribe(
+      (addedProduct: any) => {
+        this.addedProduct = addedProduct;
+        console.log('Product added to cart:', this.addedProduct);
+      },
+      (error) => {
+        console.error('Error adding product to cart:', error);
+      }
+    );
+  }
+ 
 }

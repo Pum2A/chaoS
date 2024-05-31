@@ -12,6 +12,8 @@ import { CommonModule } from '@angular/common';
 import { ComputerComponent } from './components/products-type/computer/computer.component';
 import { provideIcons } from '@ng-icons/core';
 import { bootstrapCart3 } from '@ng-icons/bootstrap-icons';
+import { ShoppingCartItemsComponent } from './components/shopping-cart-items/shopping-cart-items.component';
+import { ShoppingCartService } from './services/shopping-cart/shopping-cart.service';
 
 @Component({
   selector: 'app-root',
@@ -31,8 +33,10 @@ import { bootstrapCart3 } from '@ng-icons/bootstrap-icons';
     CommonModule,
     RouterModule,
     ComputerComponent,
+    ShoppingCartItemsComponent,
   ],
-  viewProviders: [provideIcons({ bootstrapCart3  })]
+  viewProviders: [provideIcons({ bootstrapCart3  })],
+  providers:[ShoppingCartService]
 
 })
 export class AppComponent {
@@ -43,10 +47,6 @@ export class AppComponent {
   onCategorySelected(category: string) {
     this.selectedCategory = category;
   }
-
-  age = input(5);
-  // age multiplied by two.
-  ageMultiplied = computed(() => this.age() * 2);               
 
   
 }

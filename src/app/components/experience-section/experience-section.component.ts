@@ -36,7 +36,7 @@ import { NgIconComponent, provideIcons } from '@ng-icons/core';
                   name="bootstrapReception4"
                   class="experience-icons"
                 ></ng-icon>
-                <p>Position: <span>1</span></p>
+                <p class="info-about">Position: <span>1</span></p>
               </li>
             </ul>
           </div>
@@ -47,7 +47,7 @@ import { NgIconComponent, provideIcons } from '@ng-icons/core';
                   name="bootstrapArrowUpRight"
                   class="experience-icons"
                 ></ng-icon>
-                <p>Years: <span>12</span></p>
+                <p class="info-about">12+ <span>years</span></p>
               </li>
             </ul>
           </div>
@@ -58,7 +58,7 @@ import { NgIconComponent, provideIcons } from '@ng-icons/core';
                   name="bootstrapMapFill"
                   class="experience-icons"
                 ></ng-icon>
-                <p>Location: <span>Cracow</span></p>
+                <p class="info-about"><span>Cracow</span></p>
               </li>
             </ul>
           </div>
@@ -70,14 +70,14 @@ import { NgIconComponent, provideIcons } from '@ng-icons/core';
                   name="bootstrapCollectionFill"
                   class="experience-icons"
                 ></ng-icon>
-                <p>Responsibilities: <span>Electronics</span></p>
+                <p class="info-about"><span>Electronics</span></p>
               </li>
             </ul>
           </div>
           <div class="content-box">
             <ul>
-              <li class="data-content">
-                <ng-icon name="bootstrapSignTurnLeftFill"></ng-icon>
+              <li class="data-content-second">
+                <ng-icon class="second-icons" name="bootstrapSignTurnLeftFill"></ng-icon>
                 <div class="block-name">
                   <span>14 day return policy</span>
                 </div>
@@ -93,8 +93,8 @@ import { NgIconComponent, provideIcons } from '@ng-icons/core';
           </div>
           <div class="content-box">
             <ul>
-              <li class="data-content">
-                <ng-icon name="bootstrapSignTurnLeftFill"></ng-icon>
+              <li class="data-content-second">
+                <ng-icon class="second-icons" name="bootstrapSignTurnLeftFill"></ng-icon>
                 <div class="block-name">
                 <span>100% Quality Guarantee</span>
               </div>

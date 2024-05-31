@@ -21,6 +21,21 @@
   // text-align: center;
 }
 
+.h5-container{
+  text-align: center;
+}
+
+ng-icon{
+  font-size: 4rem;
+  background-color: $color-hover-contrast;
+  height: 8rem;
+  width: 8rem;
+  border: 3px solid #fff;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  border-radius: 50%;
+}
 
 .wrapper {
   max-width: 1460px;
@@ -41,9 +56,22 @@
   color: $main-color-text;
 }
 .content-box{
-margin: 0 auto;
-width: 100%;
-background-color: green;
+  margin: 0 auto;
+  width: 100%;
+  padding: 2rem 2rem;
+  background-color: $main-block-color;
+  border-radius: 2rem;
+  cursor: pointer;
+
+  &:hover{
+    background-color: $color-hover-contrast;
+    color: #fff;
+
+    ng-icon{
+      background-color: $color-hover-contrast;
+     border: 3px solid #fff
+    }
+  }
 
 ;}
 
@@ -97,16 +125,51 @@ img {
 .data-content {
   list-style: none;
   color: #fff;
-  font-size: 1.6rem;
   // margin: 1rem 0rem;
-  min-height: 170px;
-  max-height: 170px;
+  min-height: 150px;
+  max-height: 150px;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
+
  
+}
+
+.info-about{
+  font-size: 5rem;
+  font-weight: 800;
+  letter-spacing: .2rem;
 }
 li div {
   margin: 0.3rem 0rem;
+  font-weight: 100;
+}
+
+
+.block-name span{
+  font-weight: 800;
+  font-size: 3rem;
+}
+
+.second-icons{
+  font-size: 3rem !important;
+  width: 5rem;
+  height: 5rem;
+  margin: 3rem 0rem;
+}
+
+.data-content-second{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.data-content-second p{
+  text-align: center;
+  padding: 1rem 0rem;
+  font-size: 2rem;
+  line-height: 100%;
   font-weight: 100;
 }

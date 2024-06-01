@@ -50,6 +50,8 @@ export class ShoppingCartItemsComponent implements OnInit {
         quantity: item.quantity
       }));
     });
+    
+    
   }
 
   trackById(index: number, item: Items): string {

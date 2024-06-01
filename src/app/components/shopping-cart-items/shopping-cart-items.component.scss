@@ -2,7 +2,12 @@
 .shopping-cart-container {
   background-color: $main-block-color;
   max-width: 500px;
-  position: absolute;
+  position: absolute; 
+  right: 0; 
+  height: 100%; 
+  overflow-y: auto;
+  border-radius: 2rem;
+  padding: 1rem 1rem;
 }
 h2 {
   text-align: center;

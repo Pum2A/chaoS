@@ -41,7 +41,7 @@
 }
 .block a {
   font-size: 1.8rem;
-  color: #e8317e;
+  color: $color-hover-contrast;
   padding: 1rem 0;
   text-transform: uppercase;
   font-weight: 800;
@@ -53,7 +53,7 @@
 }
 ng-icon {
   font-size: 5rem;
-  color: #e8317e;
+  color: $color-hover-contrast;
 }
 .block:hover {
   background-color: #9c2456;

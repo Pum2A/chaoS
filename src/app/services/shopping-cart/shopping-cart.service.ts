@@ -1,25 +1,25 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Items } from '../../interfaces/items';
-import { BehaviorSubject, Observable, catchError, of } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { AddToCartDto } from '../../dtos/add-to-card.dto';
+
 @Injectable({
   providedIn: 'root'
 })
 export class ShoppingCartService {
 
-  items: Items[] = [];
   private http = inject(HttpClient);
   private cartItemsSubject = new BehaviorSubject<Items[]>([]);
-
-  cartItems: Items[] = [];
+  cartItems$ = this.cartItemsSubject.asObservable();
+  
+  private cartVisibleSource = new BehaviorSubject<boolean>(false);
+  cartVisible$ = this.cartVisibleSource.asObservable();
 
   api = 'http://localhost:3000/cart';
-  getCartUrl = `${this.api}`;
   addToCartUrl = `${this.api}/add`;
   removeFromCartUrl = `${this.api}/remove`;
 
-  
   addToCart(addToCartDto: AddToCartDto): Observable<Items> {
     return this.http.post<Items>(this.addToCartUrl, addToCartDto);
   }
@@ -34,10 +34,10 @@ export class ShoppingCartService {
   }
 
   clearCart() {
-    this.cartItems = [];
+    this.cartItemsSubject.next([]);
   }
   
-
-  
-
+  toggleCartVisibility() {
+    this.cartVisibleSource.next(!this.cartVisibleSource.value);
+  }
 }

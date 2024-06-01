@@ -1,1 +1,15 @@
-<div class="bg"><app-topbar (click)="(onCategorySelected)"></app-topbar><app-sidebar [isOpen]="isMenuOpen"></app-sidebar><router-outlet></router-outlet>@defer (on viewport){ <app-footer></app-footer>} @placeholder{ <div>Loading</div>} </div>
+<div class="bg">
+  <app-topbar (click)="(onCategorySelected)"/>
+    
+   
+    <app-shopping-cart-items/>
+
+    <app-sidebar [isOpen]="isMenuOpen"/>
+    <router-outlet/>
+        
+        @defer (on viewport){
+            <app-footer/>} @placeholder{
+                <div>Loading</div>
+            }
+            
+</div>

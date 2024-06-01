@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { ShoppingCartService } from '../../services/shopping-cart/shopping-cart.service';
 import { Items } from '../../interfaces/items';
 import { NgOptimizedImage } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-shopping-cart-items',
   standalone: true,
-  imports: [CommonModule, NgOptimizedImage],
+  imports: [CommonModule, NgOptimizedImage, FormsModule],
   template: `
     <div class="shopping-cart-container" *ngIf="isVisible">
       <div *ngIf="cartItems.length > 0; else emptyCart">
@@ -21,10 +22,16 @@ import { NgOptimizedImage } from '@angular/common';
             <p>Category: {{ item.category }}</p>
             <p>Price: {{ item.price }} $</p>
             <p class="description">Description: {{ item.description }}</p>
-            <p>Quantity: {{ item.quantity }}</p>
+            <p>Quantity: 
+  <input type="number" [(ngModel)]="item.quantity" (change)="updateCartItemQuantity(item)" min="1" max="99" />
+</p>
+
             <button (click)="removeFromCart(item)">Remove from cart</button>
           </li>
         </ul>
+        <div>
+          <p>Total price: {{ totalPrice }} $ </p>
+        </div>
       </div>
       <ng-template #emptyCart>
         <p>Your shopping cart is empty.</p>
@@ -36,6 +43,8 @@ import { NgOptimizedImage } from '@angular/common';
 export class ShoppingCartItemsComponent implements OnInit {
   cartItems: Items[] = [];
   isVisible = false;
+  totalPrice = 0;
+  
 
   constructor(private shoppingCartService: ShoppingCartService) {}
 
@@ -49,7 +58,9 @@ export class ShoppingCartItemsComponent implements OnInit {
         ...item.product,
         quantity: item.quantity
       }));
+      this.calculateTotalPrice();
     });
+
     
     
   }
@@ -61,6 +72,27 @@ export class ShoppingCartItemsComponent implements OnInit {
   removeFromCart(item: Items): void {
     this.shoppingCartService.removeFromCart(item).subscribe(() => {
       this.cartItems = this.cartItems.filter(cartItem => cartItem._id !== item._id);
+      this.calculateTotalPrice();
+    });
+
+  }
+
+  updateCartItem(item: Items): void {
+    this.shoppingCartService.updateCartItem(item).subscribe(() => {
+      this.calculateTotalPrice();
     });
   }
+
+  updateCartItemQuantity(item: Items) {
+    this.shoppingCartService.updateCartItem(item).subscribe();
+  }
+
+  calculateTotalPrice(): void {
+    this.totalPrice = this.cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+    this.totalPrice = Math.ceil(this.totalPrice * 100) / 100;
+    
+  }
+
+  
+
 }

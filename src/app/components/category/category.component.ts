@@ -25,7 +25,6 @@ import { AddToCartDto } from '../../dtos/add-to-card.dto';
               <p class="items">Category: {{ item.category }}</p>
               <p class="items">Price: {{ item.price }} $</p>
               <p class="items">About Product: {{ item.description }}</p>
-              <p>{{item._id}}</p>
             </li>
             <div class="btn-container">
             <button (click)="addToCart(item)">Add to cart</button>

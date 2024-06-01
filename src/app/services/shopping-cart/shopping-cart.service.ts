@@ -19,6 +19,8 @@ export class ShoppingCartService {
   api = 'http://localhost:3000/cart';
   addToCartUrl = `${this.api}/add`;
   removeFromCartUrl = `${this.api}/remove`;
+  updateCartItemUrl = `${this.api}/edit`;
+
 
   constructor(private snackBar: MatSnackBar) {
     this.loadCartItems();
@@ -69,9 +71,21 @@ export class ShoppingCartService {
     });
   }
 
+ updateCartItem(item: Items): Observable<Items> {
+  const url = `${this.updateCartItemUrl}/${item._id}`;
+  return this.http.put<Items>(url, item).pipe(
+    tap(() => {
+      this.loadCartItems();
+      this.showSnackBar('Cart item has been successfully updated');
+    })
+  );
+}
+
   private ShowDeleteSnackBar(message: string): void {
     this.snackBar.open(message, 'Close', {
       duration: 3000,
     });
   }
+
+  
 }

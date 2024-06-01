@@ -13,7 +13,8 @@ import { ComputerComponent } from './components/products-type/computer/computer.
 import { provideIcons } from '@ng-icons/core';
 import { bootstrapCart3 } from '@ng-icons/bootstrap-icons';
 import { ShoppingCartItemsComponent } from './components/shopping-cart-items/shopping-cart-items.component';
-import { ShoppingCartService } from './services/shopping-cart/shopping-cart.service';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+
 
 @Component({
   selector: 'app-root',
@@ -34,9 +35,11 @@ import { ShoppingCartService } from './services/shopping-cart/shopping-cart.serv
     RouterModule,
     ComputerComponent,
     ShoppingCartItemsComponent,
+    MatSnackBarModule,
+    
   ],
   viewProviders: [provideIcons({ bootstrapCart3  })],
-  providers:[ShoppingCartService]
+  providers:[]
 
 })
 export class AppComponent {

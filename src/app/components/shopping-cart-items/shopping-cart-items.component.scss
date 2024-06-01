@@ -2,7 +2,7 @@
 .shopping-cart-container {
   background-color: $main-block-color;
   max-width: 500px;
-  position: absolute; 
+  position: fixed; 
   right: 0; 
   height: 100%; 
   overflow-y: auto;

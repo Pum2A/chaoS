@@ -22,7 +22,7 @@ export const appConfig: ApplicationConfig = {
     provideNoopAnimations(),
     provideAnimationsAsync(),
     provideAnimations(),
-    provideHttpClient(withFetch(), withJsonpSupport()),
+    provideHttpClient(withFetch(), withJsonpSupport()), provideAnimationsAsync(),
     // provideHttpClient(withFetch(), withJsonpSupport()),
     // withFetch(),
   ],

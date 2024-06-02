@@ -14,6 +14,8 @@ import { provideIcons } from '@ng-icons/core';
 import { bootstrapCart3 } from '@ng-icons/bootstrap-icons';
 import { ShoppingCartItemsComponent } from './components/shopping-cart-items/shopping-cart-items.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { LoadingIndicatorComponent } from './components/loading-indicator/loading-indicator.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
 @Component({
@@ -36,6 +38,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     ComputerComponent,
     ShoppingCartItemsComponent,
     MatSnackBarModule,
+    LoadingIndicatorComponent,
+    MatProgressSpinnerModule,
     
   ],
   viewProviders: [provideIcons({ bootstrapCart3  })],
@@ -46,6 +50,14 @@ export class AppComponent {
   title = 'chaoS';
   isMenuOpen = false;
   selectedCategory: string = '';
+
+  isLoading = true;
+  constructor( ) {
+    setTimeout(() => {
+      this.isLoading = false;
+    
+    },  3000)
+  }
 
   onCategorySelected(category: string) {
     this.selectedCategory = category;

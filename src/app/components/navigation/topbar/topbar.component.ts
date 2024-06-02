@@ -21,8 +21,14 @@ import { Items } from '../../../interfaces/items';
           <li (click)="navigateToCategory('tablet')"><a>Tablets</a></li>
           <li><a routerLink="/support">Support</a></li>
           <li><a routerLink="/contact">Contact</a></li>
-          <ng-icon (click)="onCartButtonClick()" class="shopping-cart" name="bootstrapCart3"></ng-icon>
-          <p>Cart Items length: {{getCartItemsLength()}} </p>
+          <div class="shop-container">
+            <ng-icon
+              (click)="onCartButtonClick()"
+              class="shopping-cart"
+              name="bootstrapCart3"
+            ></ng-icon>
+            <span class="cart-item-count" (click)="onCartButtonClick()">{{ getCartItemsLength() }}</span>
+          </div>
         </ul>
       </nav>
     </div>
@@ -30,7 +36,10 @@ import { Items } from '../../../interfaces/items';
   styleUrls: ['./topbar.component.scss'],
 })
 export class TopbarComponent {
-  constructor(private router: Router, private shoppingCartService: ShoppingCartService) {}
+  constructor(
+    private router: Router,
+    private shoppingCartService: ShoppingCartService
+  ) {}
   navigateToCategory(category: string) {
     this.router.navigate(['/category'], { queryParams: { category } });
   }
@@ -42,5 +51,4 @@ export class TopbarComponent {
   getCartItemsLength() {
     return this.shoppingCartService.itemsLength();
   }
-
 }

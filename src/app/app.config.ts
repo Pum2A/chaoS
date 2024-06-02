@@ -9,10 +9,12 @@ import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import {
+  HTTP_INTERCEPTORS,
   provideHttpClient,
   withFetch,
   withJsonpSupport,
 } from '@angular/common/http';
+import { LoadingInterceptor } from './interceptors/loading.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -23,7 +25,6 @@ export const appConfig: ApplicationConfig = {
     provideAnimationsAsync(),
     provideAnimations(),
     provideHttpClient(withFetch(), withJsonpSupport()), provideAnimationsAsync(),
-    // provideHttpClient(withFetch(), withJsonpSupport()),
-    // withFetch(),
+    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true }
   ],
 };

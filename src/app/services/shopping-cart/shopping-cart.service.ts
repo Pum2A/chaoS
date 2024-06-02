@@ -24,6 +24,7 @@ export class ShoppingCartService {
 
   constructor(private snackBar: MatSnackBar) {
     this.loadCartItems();
+    this.itemsLength();
   }
 
   addToCart(addToCartDto: AddToCartDto): Observable<Items> {
@@ -50,6 +51,7 @@ export class ShoppingCartService {
   private loadCartItems() {
     this.http.get<Items[]>(this.api).subscribe((items) => {
       this.cartItemsSubject.next(items);
+      
     });
   }
 
@@ -71,6 +73,8 @@ export class ShoppingCartService {
     });
   }
 
+
+
  updateCartItem(item: Items): Observable<Items> {
   const url = `${this.updateCartItemUrl}/${item._id}`;
   return this.http.put<Items>(url, item).pipe(
@@ -79,6 +83,12 @@ export class ShoppingCartService {
       this.showSnackBar('Cart item has been successfully updated');
     })
   );
+}
+
+itemsLength(): number {
+  return this.cartItemsSubject.value.length;
+
+
 }
 
   private ShowDeleteSnackBar(message: string): void {

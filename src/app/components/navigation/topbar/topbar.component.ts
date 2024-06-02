@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, Output } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { ShoppingCartService } from '../../../services/shopping-cart/shopping-cart.service';
 import { CommonModule } from '@angular/common';
 import { NgIconComponent } from '@ng-icons/core';
+import { Items } from '../../../interfaces/items';
 
 @Component({
   selector: 'app-topbar',
@@ -21,6 +22,7 @@ import { NgIconComponent } from '@ng-icons/core';
           <li><a routerLink="/support">Support</a></li>
           <li><a routerLink="/contact">Contact</a></li>
           <ng-icon (click)="onCartButtonClick()" class="shopping-cart" name="bootstrapCart3"></ng-icon>
+          <p>Cart Items length: {{getCartItemsLength()}} </p>
         </ul>
       </nav>
     </div>
@@ -29,7 +31,6 @@ import { NgIconComponent } from '@ng-icons/core';
 })
 export class TopbarComponent {
   constructor(private router: Router, private shoppingCartService: ShoppingCartService) {}
-
   navigateToCategory(category: string) {
     this.router.navigate(['/category'], { queryParams: { category } });
   }
@@ -37,4 +38,9 @@ export class TopbarComponent {
   onCartButtonClick() {
     this.shoppingCartService.toggleCartVisibility();
   }
+
+  getCartItemsLength() {
+    return this.shoppingCartService.itemsLength();
+  }
+
 }

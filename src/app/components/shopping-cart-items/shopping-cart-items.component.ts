@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ShoppingCartService } from '../../services/shopping-cart/shopping-cart.service';
 import { Items } from '../../interfaces/items';
@@ -44,6 +44,7 @@ export class ShoppingCartItemsComponent implements OnInit {
   cartItems: Items[] = [];
   isVisible = false;
   totalPrice = 0;
+  @Input() cartItems$: Items[] = [];
   
 
   constructor(private shoppingCartService: ShoppingCartService) {}

@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, Inject, Input, OnInit, Renderer2 } from '@angular/core';
+import { CommonModule, DOCUMENT } from '@angular/common';
 import { ShoppingCartService } from '../../services/shopping-cart/shopping-cart.service';
 import { Items } from '../../interfaces/items';
 import { NgOptimizedImage } from '@angular/common';
@@ -13,13 +13,15 @@ import { delay, of, switchMap } from 'rxjs';
   standalone: true,
   imports: [CommonModule, NgOptimizedImage, FormsModule, MatProgressSpinnerModule],
   template: `
-    <div class="shopping-cart-container" *ngIf="isVisible">
-      <div *ngIf="cartItems.length > 0; else emptyCart">
-      <div class="title-container">
+  <div class="bg-blur" *ngIf="isVisible">
 
-        <h2>Your Shopping Cart</h2>
-        <span (click)="visibleOff()">X</span>
-      </div>
+    <div class="shopping-cart-container" >
+      <div *ngIf="cartItems.length > 0; else emptyCart">
+        <div class="title-container">
+          
+          <h2>Your Shopping Cart</h2>
+          <span (click)="visibleOff()" (click)="overflowShow()" >X</span>
+        </div>
         <ul>
           <li *ngFor="let item of cartItems; trackBy: trackById">
             <div class="name-container">
@@ -30,9 +32,9 @@ import { delay, of, switchMap } from 'rxjs';
             <p>Price: {{ item.price }} $</p>
             <p class="description">Description: {{ item.description }}</p>
             <p>Quantity: 
-  <input type="number" [(ngModel)]="item.quantity" (change)="updateCartItemQuantity(item)" min="1" max="99" />
-</p>
-
+              <input type="number" [(ngModel)]="item.quantity" (change)="updateCartItemQuantity(item)" min="1" max="99" />
+            </p>
+            
             <button *ngIf="!item.loading" (click)="removeFromCart(item)">Remove from cart</button>
             <mat-spinner *ngIf="item.loading" color="" strokeWidth="4" diameter="50"></mat-spinner>
           </li>
@@ -45,22 +47,31 @@ import { delay, of, switchMap } from 'rxjs';
         <p>Your shopping cart is empty.</p>
       </ng-template>
     </div>
-  `,
+    </div>
+    `,
   styleUrls: ['./shopping-cart-items.component.scss'],
 })
 export class ShoppingCartItemsComponent implements OnInit {
   cartItems: Items[] = [];
   isVisible = false;
   totalPrice = 0;
+
+
+ 
   
 
-  constructor(private shoppingCartService: ShoppingCartService, private loadingService: LoadingService) {}
+  constructor(private shoppingCartService: ShoppingCartService, private loadingService: LoadingService,  @Inject(DOCUMENT) private document: Document, protected renderer: Renderer2) {}
 
   ngOnInit(): void {
     this.shoppingCartService.cartVisible$.subscribe(visible => {
       this.isVisible = visible;
+      if(visible) {
+        this.renderer.setStyle(this.document.body, 'overflow', 'hidden');
+      } else {
+        this.renderer.setStyle(this.document.body, 'overflow', 'inherit');
+      }
     });
-
+    
     this.shoppingCartService.getCartItems().subscribe((items: any[]) => {
       this.cartItems = items.map(item => ({
         ...item.product,
@@ -69,8 +80,15 @@ export class ShoppingCartItemsComponent implements OnInit {
       this.calculateTotalPrice();
     });
 
+
+  
     
     
+  }
+
+  overflowShow(): void { 
+    this.renderer.setStyle(this.document.body, 'overflow', 'inherit');
+
   }
 
   visibleOff(): void {

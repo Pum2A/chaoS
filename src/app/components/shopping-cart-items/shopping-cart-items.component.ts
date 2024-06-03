@@ -15,7 +15,11 @@ import { delay, of, switchMap } from 'rxjs';
   template: `
     <div class="shopping-cart-container" *ngIf="isVisible">
       <div *ngIf="cartItems.length > 0; else emptyCart">
+      <div class="title-container">
+
         <h2>Your Shopping Cart</h2>
+        <span (click)="visibleOff()">X</span>
+      </div>
         <ul>
           <li *ngFor="let item of cartItems; trackBy: trackById">
             <div class="name-container">
@@ -67,6 +71,10 @@ export class ShoppingCartItemsComponent implements OnInit {
 
     
     
+  }
+
+  visibleOff(): void {
+    this.shoppingCartService.toggleCartVisibility();
   }
 
   trackById(index: number, item: Items): string {

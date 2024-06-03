@@ -12,7 +12,35 @@
 h2 {
   text-align: center;
   font-size: 3rem;
-  padding: 2rem 0;
+  // padding: 2rem 0;
+}
+.title-container{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 5rem 0rem;
+}
+h2{
+  margin: 0;
+  padding: 0;
+}
+.title-container h2{
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.title-container span{
+  font-size: 3rem;
+  height: 5rem;
+  width: 5rem;
+  padding: 1rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $color-buttons-contrast;
+  border-radius: 50%;  
+  cursor: pointer;
 }
 ul {
   max-width: 500px;

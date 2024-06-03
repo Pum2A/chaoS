@@ -24,7 +24,6 @@ export class ShoppingCartService {
 
   constructor(private snackBar: MatSnackBar) {
     this.loadCartItems();
-    this.itemsLength();
   }
 
   addToCart(addToCartDto: AddToCartDto): Observable<Items> {

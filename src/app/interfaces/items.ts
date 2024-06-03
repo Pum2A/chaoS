@@ -6,4 +6,6 @@ export interface Items {
   description: string;
   product_url: string;
   quantity: number;
+  loading?: boolean; 
+
 }

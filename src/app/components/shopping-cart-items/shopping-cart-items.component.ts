@@ -4,11 +4,14 @@ import { ShoppingCartService } from '../../services/shopping-cart/shopping-cart.
 import { Items } from '../../interfaces/items';
 import { NgOptimizedImage } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { LoadingService } from '../../services/loading/loading.service';
+import { delay, of, switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-shopping-cart-items',
   standalone: true,
-  imports: [CommonModule, NgOptimizedImage, FormsModule],
+  imports: [CommonModule, NgOptimizedImage, FormsModule, MatProgressSpinnerModule],
   template: `
     <div class="shopping-cart-container" *ngIf="isVisible">
       <div *ngIf="cartItems.length > 0; else emptyCart">
@@ -26,7 +29,8 @@ import { FormsModule } from '@angular/forms';
   <input type="number" [(ngModel)]="item.quantity" (change)="updateCartItemQuantity(item)" min="1" max="99" />
 </p>
 
-            <button (click)="removeFromCart(item)">Remove from cart</button>
+            <button *ngIf="!item.loading" (click)="removeFromCart(item)">Remove from cart</button>
+            <mat-spinner *ngIf="item.loading" color="" strokeWidth="4" diameter="50"></mat-spinner>
           </li>
         </ul>
         <div>
@@ -44,10 +48,9 @@ export class ShoppingCartItemsComponent implements OnInit {
   cartItems: Items[] = [];
   isVisible = false;
   totalPrice = 0;
-  @Input() cartItems$: Items[] = [];
   
 
-  constructor(private shoppingCartService: ShoppingCartService) {}
+  constructor(private shoppingCartService: ShoppingCartService, private loadingService: LoadingService) {}
 
   ngOnInit(): void {
     this.shoppingCartService.cartVisible$.subscribe(visible => {
@@ -71,12 +74,23 @@ export class ShoppingCartItemsComponent implements OnInit {
   }
 
   removeFromCart(item: Items): void {
-    this.shoppingCartService.removeFromCart(item).subscribe(() => {
+    item.loading = true;
+
+    of(null)
+    .pipe(
+      delay(1000),
+      switchMap(() => this.shoppingCartService.removeFromCart(item))
+      
+    ).subscribe(() => {
       this.cartItems = this.cartItems.filter(cartItem => cartItem._id !== item._id);
-      this.calculateTotalPrice();
-    });
+        this.calculateTotalPrice();
+        item.loading = false;
+    })
+  
 
   }
+
+  
 
   updateCartItem(item: Items): void {
     this.shoppingCartService.updateCartItem(item).subscribe(() => {

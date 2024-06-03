@@ -22,7 +22,7 @@ import { BehaviorSubject, debounceTime } from "rxjs";
           setTimeout(() => {
             this.loadingSubject.next(false);
             this.isLoading = false;
-          }, 3000);
+          }, 1000);
         }
       }
   }

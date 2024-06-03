@@ -94,22 +94,28 @@ button {
   font-weight: 800;
   border-radius: 2rem;
   letter-spacing: 0.1rem;
-  // border: 1px solid #fff;
   color: #fff;
   padding: 1rem 3rem;
   margin: 1rem 0rem;
 }
 
+mat-spinner{
+  width: 12rem !important;
+  height: 3.5rem !important;
+  cursor: pointer;
+  align-items: center !important;
+  display: flex !important;
+  justify-content: center !important;
+  background-color: $color-buttons-contrast;
+  font-weight: 800;
+  border-radius: 2rem;
+  letter-spacing: 0.1rem;
+  color: #fff;
+  padding: 1rem 3rem;
+  margin: 1rem 0rem;
 
-.spinner-container {
-  position: fixed;
-  height: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  top: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.32);
-  z-index: 2000;
+}
+
+.mat-mdc-progress-spinner .mdc-circular-progress .mat-primary .mdc-circular-progress--indeterminate {
+  stroke: #fff !important;
 }

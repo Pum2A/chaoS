@@ -12,4 +12,5 @@ export const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'category', component: CategoryComponent },
   { path: '**', redirectTo: 'home' },
+  {path: ':id/details', component: CategoryComponent},
 ];

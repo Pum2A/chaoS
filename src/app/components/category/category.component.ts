@@ -21,13 +21,14 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
         <div class="content-box" *ngFor="let item of filteredItems">
           <ul>
             <div class="image-container">
-              <img [ngSrc]="item.product_url" width="400" height="400" />
+              <img (click)="fetchItemDetails(item)" [ngSrc]="item.product_url" width="400" height="400" />
             </div>
             <li class="data-content">
               <p class="item-name">{{ item.name }}</p>
               <p class="items">Category: {{ item.category }}</p>
               <p class="items">Price: {{ item.price }} $</p>
               <p class="items">About Product: {{ item.description }}</p>
+              
             </li>
             <div class="btn-container">
               <button *ngIf="!item.loading" (click)="addToCart(item)">
@@ -53,8 +54,7 @@ export class CategoryComponent implements OnInit {
   filteredItems: Items[] = [];
   addedProduct: any = null;
   products: Items[] = [];
-  @Input() _id: string = '';
-
+  @Input() filteredData: Items[] = [];
   private category: string = '';
   private queryParamSubscription!: Subscription;
   private dataSubscription!: Subscription;
@@ -71,6 +71,8 @@ export class CategoryComponent implements OnInit {
       this.category = params['category'] || '';
       this.loadItems();
     });
+
+
   }
 
   ngOnDestroy() {
@@ -127,5 +129,17 @@ export class CategoryComponent implements OnInit {
           item.loading = false;
         }
       );
+  }
+  fetchItemDetails(item: Items): void {
+    console.log('Fetching details for item id:', item._id); // Log the id to ensure it's correct
+    this.dataService.showDetails(item._id).subscribe(
+      (itemDetails: Items) => {
+        console.log('Item Details:', itemDetails);
+        // Display item details in a modal or separate section
+      },
+      (error) => {
+        console.error('Error fetching item details:', error);
+      }
+    );
   }
 }

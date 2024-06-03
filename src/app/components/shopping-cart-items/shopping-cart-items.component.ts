@@ -25,7 +25,7 @@ import { delay, of, switchMap } from 'rxjs';
         <ul>
           <li *ngFor="let item of cartItems; trackBy: trackById">
             <div class="name-container">
-              <p>{{ item.name }}</p>
+              <p>{{ item.name }} x{{item.quantity}}</p>  
               <img [ngSrc]="item.product_url" width="100" height="100" />
             </div>
             <p>Category: {{ item.category }}</p>

@@ -8,10 +8,15 @@ import { Observable } from 'rxjs';
 })
 export class DataService {
   @Output() category: string = '';
-  @Input() items: Items[] = [];
+  // @Output() filteredData: Items[] = [];
+  // @Input() items: Items[] = [];
 
   private http = inject(HttpClient);
   fetchData(): Observable<Items[]> {
     return this.http.get<Items[]>('http://localhost:3000/products');
   }
+  showDetails(id: string): Observable<Items> {
+    return this.http.get<Items>(`http://localhost:3000/products/${id}/details`);
+  }
+  
 }

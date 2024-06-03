@@ -7,9 +7,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class DataService {
-  @Output() category: string = '';
-  // @Output() filteredData: Items[] = [];
-  // @Input() items: Items[] = [];
+
+
 
   private http = inject(HttpClient);
   fetchData(): Observable<Items[]> {

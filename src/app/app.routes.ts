@@ -7,10 +7,11 @@ import { ComputerComponent } from './components/products-type/computer/computer.
 import { TabletComponent } from './components/products-type/tablet/tablet.component';
 import { PhoneComponent } from './components/products-type/phone/phone.component';
 import { CategoryComponent } from './components/category/category.component';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
 
 export const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'category', component: CategoryComponent },
+  { path: 'products/:id/details', component: ProductDetailsComponent },
   { path: '**', redirectTo: 'home' },
-  {path: ':id/details', component: CategoryComponent},
 ];

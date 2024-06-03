@@ -1,5 +1,5 @@
 import { Component, inject, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, NavigationStart, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { DataService } from '../../services/data/data.service';
 import { Items } from '../../interfaces/items';
@@ -63,7 +63,9 @@ export class CategoryComponent implements OnInit {
     private dataService: DataService,
     private route: ActivatedRoute,
     private shoppingCartService: ShoppingCartService,
-    private loadingService: LoadingService
+    private loadingService: LoadingService,
+    private router: Router
+
   ) {}
 
   ngOnInit() {
@@ -71,7 +73,6 @@ export class CategoryComponent implements OnInit {
       this.category = params['category'] || '';
       this.loadItems();
     });
-
 
   }
 
@@ -131,15 +132,8 @@ export class CategoryComponent implements OnInit {
       );
   }
   fetchItemDetails(item: Items): void {
-    console.log('Fetching details for item id:', item._id); // Log the id to ensure it's correct
-    this.dataService.showDetails(item._id).subscribe(
-      (itemDetails: Items) => {
-        console.log('Item Details:', itemDetails);
-        // Display item details in a modal or separate section
-      },
-      (error) => {
-        console.error('Error fetching item details:', error);
-      }
-    );
+    this.router.navigate([`/products/${item._id}/details`]);
+
+
   }
 }

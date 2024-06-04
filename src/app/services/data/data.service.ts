@@ -7,9 +7,6 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class DataService {
-
-
-
   private http = inject(HttpClient);
   fetchData(): Observable<Items[]> {
     return this.http.get<Items[]>('http://localhost:3000/products');
@@ -17,5 +14,4 @@ export class DataService {
   showDetails(id: string): Observable<Items> {
     return this.http.get<Items>(`http://localhost:3000/products/${id}/details`);
   }
-  
 }

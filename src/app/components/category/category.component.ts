@@ -21,14 +21,18 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
         <div class="content-box" *ngFor="let item of filteredItems">
           <ul>
             <div class="image-container">
-              <img (click)="fetchItemDetails(item)" [ngSrc]="item.product_url" width="400" height="400" />
+              <img
+                (click)="fetchItemDetails(item)"
+                [ngSrc]="item.product_url"
+                width="400"
+                height="400"
+              />
             </div>
             <li class="data-content">
               <p class="item-name">{{ item.name }}</p>
               <p class="items">Category: {{ item.category }}</p>
               <p class="items">Price: {{ item.price }} $</p>
               <p class="items">About Product: {{ item.description }}</p>
-              
             </li>
             <div class="btn-container">
               <button *ngIf="!item.loading" (click)="addToCart(item)">
@@ -64,8 +68,7 @@ export class CategoryComponent implements OnInit {
     private route: ActivatedRoute,
     private shoppingCartService: ShoppingCartService,
     private loadingService: LoadingService,
-    private router: Router
-
+    private router: Router,
   ) {}
 
   ngOnInit() {
@@ -73,7 +76,6 @@ export class CategoryComponent implements OnInit {
       this.category = params['category'] || '';
       this.loadItems();
     });
-
   }
 
   ngOnDestroy() {
@@ -88,7 +90,7 @@ export class CategoryComponent implements OnInit {
   private filterItems() {
     if (this.category) {
       this.filteredItems = this.items.filter(
-        (item) => item.category.toLowerCase() === this.category.toLowerCase()
+        (item) => item.category.toLowerCase() === this.category.toLowerCase(),
       );
     } else {
       this.filteredItems = this.items;
@@ -106,7 +108,7 @@ export class CategoryComponent implements OnInit {
       (error) => {
         this.loadingService.loadingOff();
         console.error('Error fetching data:', error);
-      }
+      },
     );
   }
 
@@ -118,7 +120,7 @@ export class CategoryComponent implements OnInit {
     of(null)
       .pipe(
         delay(1000), // 2 sekundy opóźnienia
-        switchMap(() => this.shoppingCartService.addToCart(addToCartDto))
+        switchMap(() => this.shoppingCartService.addToCart(addToCartDto)),
       )
       .subscribe(
         (addedProduct: any) => {
@@ -128,12 +130,10 @@ export class CategoryComponent implements OnInit {
         (error) => {
           console.error('Error adding product to cart:', error);
           item.loading = false;
-        }
+        },
       );
   }
   fetchItemDetails(item: Items): void {
     this.router.navigate([`/products/${item._id}/details`]);
-
-
   }
 }

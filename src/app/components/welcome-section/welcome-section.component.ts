@@ -23,7 +23,7 @@ import { Component } from '@angular/core';
         </div>
         <div class="welcome-content-second">
           <img
-          [ngSrc]="mainImageUrl"
+            [ngSrc]="mainImageUrl"
             alt="Main Page Image"
             height="400"
             width="800"
@@ -36,6 +36,5 @@ import { Component } from '@angular/core';
   styleUrl: './welcome-section.component.scss',
 })
 export class WelcomeSectionComponent {
-  mainImageUrl = 'assets/images/main-page-image2.webp'
-
+  mainImageUrl = 'assets/images/main-page-image2.webp';
 }

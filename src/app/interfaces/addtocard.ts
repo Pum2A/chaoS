@@ -1,4 +1,4 @@
 export interface AddToCart {
-    productId: string;
-    quantity: number;
-  }
+  productId: string;
+  quantity: number;
+}

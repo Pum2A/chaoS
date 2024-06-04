@@ -24,7 +24,8 @@ export const appConfig: ApplicationConfig = {
     provideNoopAnimations(),
     provideAnimationsAsync(),
     provideAnimations(),
-    provideHttpClient(withFetch(), withJsonpSupport()), provideAnimationsAsync(),
-    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true }
+    provideHttpClient(withFetch(), withJsonpSupport()),
+    provideAnimationsAsync(),
+    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
   ],
 };

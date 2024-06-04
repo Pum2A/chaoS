@@ -2,3 +2,14 @@
   background-color: #0d1113;
 }
 
+.wrapper {
+  max-width: 1400px;
+  margin-inline: auto;
+  // padding: 10rem 0rem;
+
+  @media (max-width: 768px) {
+    /* Styles for smaller screens */
+    max-width: 100%;
+    padding: 0 20px;
+  }
+}

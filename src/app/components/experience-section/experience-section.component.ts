@@ -77,7 +77,10 @@ import { NgIconComponent, provideIcons } from '@ng-icons/core';
           <div class="content-box">
             <ul>
               <li class="data-content-second">
-                <ng-icon class="second-icons" name="bootstrapSignTurnLeftFill"></ng-icon>
+                <ng-icon
+                  class="second-icons"
+                  name="bootstrapSignTurnLeftFill"
+                ></ng-icon>
                 <div class="block-name">
                   <span>14 day return policy</span>
                 </div>
@@ -94,24 +97,23 @@ import { NgIconComponent, provideIcons } from '@ng-icons/core';
           <div class="content-box">
             <ul>
               <li class="data-content-second">
-                <ng-icon class="second-icons" name="bootstrapSignTurnLeftFill"></ng-icon>
+                <ng-icon
+                  class="second-icons"
+                  name="bootstrapSignTurnLeftFill"
+                ></ng-icon>
                 <div class="block-name">
-                <span>100% Quality Guarantee</span>
-              </div>
-              <p>
-                We are committed to providing products and services of the
-                highest quality. Our team of experts ensures that every aspect
-                of our offerings meets rigorous quality standards. We stand
-                behind our products and guarantee your satisfaction.
-              </p>
+                  <span>100% Quality Guarantee</span>
+                </div>
+                <p>
+                  We are committed to providing products and services of the
+                  highest quality. Our team of experts ensures that every aspect
+                  of our offerings meets rigorous quality standards. We stand
+                  behind our products and guarantee your satisfaction.
+                </p>
               </li>
             </ul>
           </div>
         </div>
-
-       
-
-        
       </section>
     </div>
   `,

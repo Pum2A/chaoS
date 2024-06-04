@@ -21,11 +21,11 @@
   // text-align: center;
 }
 
-.h5-container{
+.h5-container {
   text-align: center;
 }
 
-ng-icon{
+ng-icon {
   font-size: 4rem;
   background-color: $color-hover-contrast;
   height: 8rem;
@@ -55,7 +55,7 @@ ng-icon{
   padding: 2rem 0rem;
   color: $main-color-text;
 }
-.content-box{
+.content-box {
   margin: 0 auto;
   width: 100%;
   padding: 2rem 2rem;
@@ -63,17 +63,16 @@ ng-icon{
   border-radius: 2rem;
   cursor: pointer;
 
-  &:hover{
+  &:hover {
     background-color: $color-hover-contrast;
     color: #fff;
 
-    ng-icon{
+    ng-icon {
       background-color: $color-hover-contrast;
-     border: 3px solid #fff
+      border: 3px solid #fff;
     }
   }
-
-;}
+}
 
 .grid-container {
   // background-color: #fff;
@@ -83,17 +82,14 @@ ng-icon{
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(1, 1fr);
   gap: 4rem;
-  
-  
-  
-    @media(max-width: 1320px) {
-      grid-template-rows: repeat(2, 1fr);
-      grid-template-columns: repeat(2, 1fr);
-    }
+
+  @media (max-width: 1320px) {
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+  }
   @media (max-width: 908px) {
     grid-template-rows: repeat(1, 1fr);
     grid-template-columns: repeat(1, 1fr);
-
   }
 }
 p {
@@ -131,34 +127,31 @@ img {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
- 
 }
 
-.info-about{
+.info-about {
   font-size: 5rem;
   font-weight: 800;
-  letter-spacing: .2rem;
+  letter-spacing: 0.2rem;
 }
 li div {
   margin: 0.3rem 0rem;
   font-weight: 100;
 }
 
-
-.block-name span{
+.block-name span {
   font-weight: 800;
   font-size: 3rem;
 }
 
-.second-icons{
+.second-icons {
   font-size: 3rem !important;
   width: 5rem;
   height: 5rem;
   margin: 3rem 0rem;
 }
 
-.data-content-second{
+.data-content-second {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -166,7 +159,7 @@ li div {
   text-align: center;
 }
 
-.data-content-second p{
+.data-content-second p {
   text-align: center;
   padding: 1rem 0rem;
   font-size: 2rem;

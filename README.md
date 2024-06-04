@@ -10,8 +10,7 @@ Zdjęcia poglądowe projektu, aktualnie w trakcie tworzenia:
 
 ![alt text](image-4.png)
 
-
-Laptop category for example: 
+Laptop category for example:
 ![alt text](image-5.png)
 
 ![alt text](image-6.png)

@@ -7,7 +7,7 @@ import { provideRouter } from '@angular/router';
 import { routes } from './app/app.routes';
 
 bootstrapApplication(AppComponent, appConfig).catch((err) =>
-  console.error(err)
+  console.error(err),
 );
 
 bootstrapApplication(AppComponent, {

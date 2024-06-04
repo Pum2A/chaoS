@@ -27,7 +27,9 @@ import { Items } from '../../../interfaces/items';
               class="shopping-cart"
               name="bootstrapCart3"
             ></ng-icon>
-            <span class="cart-item-count" (click)="onCartButtonClick()">{{ getCartItemsLength() }}</span>
+            <span class="cart-item-count" (click)="onCartButtonClick()">{{
+              getCartItemsLength()
+            }}</span>
           </div>
         </ul>
       </nav>
@@ -38,7 +40,7 @@ import { Items } from '../../../interfaces/items';
 export class TopbarComponent {
   constructor(
     private router: Router,
-    private shoppingCartService: ShoppingCartService
+    private shoppingCartService: ShoppingCartService,
   ) {}
   navigateToCategory(category: string) {
     this.router.navigate(['/category'], { queryParams: { category } });

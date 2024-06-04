@@ -18,28 +18,29 @@ import { MaterialIcon } from 'material-icons';
   template: `
     <nav>
       @if (isOpen) {
-      <div>
-        <nav>
-          <ul>
-            @for (product of products; track product.id){
-            <li class="product-name">
-              <a (click)="toggleVisibility(product)">
-                {{ product.name }}
-              </a>
-            </li>
-
-            }
-          </ul>
-        </nav>
-      </div>
-
-      } @for (product of products; track product.id){ @if(product.visibility){
-      <div class="series-list " @flyInOut>
-        <a>{{ product.series[0] }}</a>
-        <a>{{ product.series[1] }}</a>
-        <a>{{ product.series[2] }}</a>
-      </div>
-      } }
+        <div>
+          <nav>
+            <ul>
+              @for (product of products; track product.id) {
+                <li class="product-name">
+                  <a (click)="toggleVisibility(product)">
+                    {{ product.name }}
+                  </a>
+                </li>
+              }
+            </ul>
+          </nav>
+        </div>
+      }
+      @for (product of products; track product.id) {
+        @if (product.visibility) {
+          <div class="series-list " @flyInOut>
+            <a>{{ product.series[0] }}</a>
+            <a>{{ product.series[1] }}</a>
+            <a>{{ product.series[2] }}</a>
+          </div>
+        }
+      }
     </nav>
   `,
   styleUrl: './sidebar.component.scss',

@@ -17,16 +17,15 @@
   font-size: 2.4rem;
   padding: 2rem 0rem;
   color: $main-color-text;
-  @media (max-width: 608px){
+  @media (max-width: 608px) {
     margin-top: 1rem;
     font-size: 1.8rem;
   }
 }
-.content-box{
-margin: 0 auto;
-@media (max-width: 608px){
-
-}
+.content-box {
+  margin: 0 auto;
+  @media (max-width: 608px) {
+  }
 }
 
 .grid-container {
@@ -37,19 +36,15 @@ margin: 0 auto;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(1, 1fr);
   gap: 4rem;
-  
-  
-  
-    @media(max-width: 1320px) {
-      grid-template-rows: repeat(2, 1fr);
-      grid-template-columns: repeat(2, 1fr);
-    }
+
+  @media (max-width: 1320px) {
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+  }
   @media (max-width: 908px) {
     grid-template-rows: repeat(1, 1fr);
     grid-template-columns: repeat(1, 1fr);
-
   }
-  
 }
 p {
   margin: 0;
@@ -62,13 +57,12 @@ p {
   width: 400px;
   background-color: #111111;
 
-  @media (max-width: 608px){
+  @media (max-width: 608px) {
     min-width: 300px;
     max-width: 300px;
-    min-height: 300px; 
-    max-height: 300px; 
-
-   }
+    min-height: 300px;
+    max-height: 300px;
+  }
 }
 ul {
   list-style: none;
@@ -80,10 +74,10 @@ img {
   // aspect-ratio: 1;
   image-rendering: optimizeQuality;
   border-radius: 2rem;
-  @media (max-width: 608px){
-   width: 300px;
-   height: 300px; 
-
+  cursor: pointer;
+  @media (max-width: 608px) {
+    width: 300px;
+    height: 300px;
   }
 }
 
@@ -102,7 +96,7 @@ img {
   flex-direction: column;
   justify-content: center;
   max-width: 400px;
-  @media (max-width: 608px){
+  @media (max-width: 608px) {
     max-width: 300px;
   }
 }
@@ -122,15 +116,14 @@ button {
   color: #fff;
   padding: 1rem 3rem;
   margin: 1rem 0rem;
-  
 }
-.btn-container{
-  @media (max-width: 608px){
+.btn-container {
+  @media (max-width: 608px) {
     margin: 1rem 0rem;
   }
 }
 
-mat-spinner{
+mat-spinner {
   width: 12rem !important;
   height: 3.5rem !important;
   cursor: pointer;
@@ -144,9 +137,11 @@ mat-spinner{
   color: #fff;
   padding: 1rem 3rem;
   margin: 1rem 0rem;
-
 }
 
-.mat-mdc-progress-spinner .mdc-circular-progress .mat-primary .mdc-circular-progress--indeterminate {
+.mat-mdc-progress-spinner
+  .mdc-circular-progress
+  .mat-primary
+  .mdc-circular-progress--indeterminate {
   stroke: #fff !important;
 }

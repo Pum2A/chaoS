@@ -4,32 +4,41 @@ import { ActivatedRoute } from '@angular/router';
 import { DataService } from '../../services/data/data.service';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { Router } from '@angular/router';
+import { LoadingService } from '../../services/loading/loading.service';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-product-details',
   standalone: true,
-  imports: [CommonModule, NgOptimizedImage],
+  imports: [CommonModule, NgOptimizedImage, MatProgressSpinnerModule],
   template: `
     <div class="wrapper">
-      <div class="product-container">
-        <div class="product-data" *ngIf="product">
+      <mat-spinner
+        *ngIf="loading"
+        color=""
+        strokeWidth="4
+      "
+        diameter="50"
+      ></mat-spinner>
+      <div *ngIf="!loading" class="product-container">
+        <div class="image-data" *ngIf="product">
           <img
             *ngIf="product.product_url"
             [src]="product.product_url"
             width="400"
             height="400"
           />
-
-          <p>{{ product.name }}</p>
-          <p>{{ product.category }}</p>
-          <p>{{ product.price }}</p>
-          <p>{{ product.description }}</p>
-          <p>{{ product.weight }}</p>
-          <p>{{ product.disk_size }}</p>
-          <p>{{ product.release_date }}</p>
+        </div>
+        <div class="content-text-data" *ngIf="product">
+          <p>Product: {{ product.name }}</p>
+          <p>Category: {{ product.category }}</p>
+          <p>Product price: {{ product.price }}</p>
+          <p>About product: {{ product.description }}</p>
+          <p>Product weight: {{ product.weight }}</p>
+          <p>Product disk size: {{ product.disk_size }}</p>
+          <p>Release date: {{ product.release_date }}</p>
           <button (click)="goBack()">Return</button>
         </div>
-        <div class="extra-data" *ngIf="product"></div>
       </div>
     </div>
   `,
@@ -37,11 +46,13 @@ import { Router } from '@angular/router';
 })
 export class ProductDetailsComponent {
   product: Items | undefined;
+  loading = true;
 
   constructor(
     private route: ActivatedRoute,
     private dataService: DataService,
     private router: Router,
+    private loadingService: LoadingService,
   ) {}
 
   ngOnInit(): void {
@@ -54,12 +65,16 @@ export class ProductDetailsComponent {
   }
 
   fetchItemDetails(id: string): void {
+    this.loadingService.loadingOn();
     this.dataService.showDetails(id).subscribe({
       next: (data) => {
         this.product = data;
+        this.loadingService.loadingOff();
+        this.loading = false;
       },
       error: (error) => {
         console.error('Error fetching item details:', error);
+        this.loading = false;
       },
     });
   }

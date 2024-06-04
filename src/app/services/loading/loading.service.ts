@@ -13,6 +13,7 @@ export class LoadingService {
   loadingOn() {
     this.isLoading = true;
     this.loadingSubject.next(true);
+    console.log('Loading started');
   }
 
   loadingOff() {

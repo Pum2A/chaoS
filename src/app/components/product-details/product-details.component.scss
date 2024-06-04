@@ -3,33 +3,26 @@
 .wrapper {
   max-width: 1400px;
   margin-inline: auto;
-  padding: 10rem 0rem;
-
-  @media (max-width: 768px) {
-    /* Styles for smaller screens */
-    max-width: 100%;
-    padding: 0 20px;
-  }
+  padding: 10rem 5rem;
 }
 
 img {
-  border-radius: 50%;
   padding: 3rem 0rem;
 }
 .product-container {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 4rem;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    display: inherit;
+  }
 }
 
-.product-data {
-  display: flex;
-  justify-content: center;
-  // align-items: center;
-  flex-direction: column;
-  max-width: 400px;
-}
 button {
-  padding: 2rem 1rem;
-  background-color: yellow;
+  padding: 1rem 5rem;
+  background-color: $color-buttons-contrast;
+  color: $main-color-text;
+  font-weight: 800;
 }

@@ -3,6 +3,7 @@ import { Items } from '../../interfaces/items';
 import { ActivatedRoute } from '@angular/router';
 import { DataService } from '../../services/data/data.service';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-details',
@@ -16,6 +17,7 @@ import { CommonModule, NgOptimizedImage } from '@angular/common';
   <p>{{ product.description }}</p>
   <img *ngIf="product.product_url" [src]="product.product_url" width="400" height="400" />
 </div>
+<button (click)="goBack()">Return</button>
 
 
 
@@ -27,7 +29,8 @@ export class ProductDetailsComponent {
 
   constructor(
     private route: ActivatedRoute,
-    private dataService: DataService
+    private dataService: DataService,
+    private router: Router,
   ) {}
 
   ngOnInit(): void {
@@ -48,6 +51,13 @@ export class ProductDetailsComponent {
         console.error('Error fetching item details:', error);
       }
     });
+  }
+  goBack(): void {
+    if (this.product?.category) {
+      this.router.navigate(['/category'], { queryParams: { category: this.product.category } });
+    } else {
+      console.error('Product category is undefined');
+    }
   }
  
 }

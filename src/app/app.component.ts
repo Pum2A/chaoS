@@ -56,7 +56,7 @@ export class AppComponent {
     setTimeout(() => {
       this.isLoading = false;
     
-    },  3000)
+    },  1000)
   }
 
   onCategorySelected(category: string) {

@@ -11,6 +11,12 @@ import { LoadingService } from '../../services/loading/loading.service';
 import { LoadingIndicatorComponent } from '../loading-indicator/loading-indicator.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
+interface Position {
+  mouseX: number;
+  mouseY: number;
+  textVisible: boolean;
+}
+
 @Component({
   selector: 'app-category',
   standalone: true,
@@ -26,7 +32,20 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
                 [ngSrc]="item.product_url"
                 width="400"
                 height="400"
+                (mousemove)="onMouseMove($event, item._id)"
+                (mouseleave)="hideText(item._id)"
               />
+              <p
+                class="hover-hide-text"
+                *ngIf="positions[item._id]"
+                [ngStyle]="{
+                  'top.px': positions[item._id]?.mouseY,
+                  'left.px': positions[item._id]?.mouseX,
+                  display: positions[item._id]?.textVisible ? 'block' : 'none',
+                }"
+              >
+                Check details!
+              </p>
             </div>
             <li class="data-content">
               <p class="item-name">{{ item.name }}</p>
@@ -62,6 +81,10 @@ export class CategoryComponent implements OnInit {
   private category: string = '';
   private queryParamSubscription!: Subscription;
   private dataSubscription!: Subscription;
+  mouseX: number = 0;
+  mouseY: number = 0;
+  textVisible: boolean = false;
+  positions: { [key: string]: Position } = {};
 
   constructor(
     private dataService: DataService,
@@ -135,5 +158,21 @@ export class CategoryComponent implements OnInit {
   }
   fetchItemDetails(item: Items): void {
     this.router.navigate([`/products/${item._id}/details`]);
+  }
+
+  onMouseMove(event: MouseEvent, itemId: string) {
+    const rect = (event.target as HTMLElement).getBoundingClientRect();
+    if (!this.positions[itemId]) {
+      this.positions[itemId] = { mouseX: 0, mouseY: 0, textVisible: false };
+    }
+    this.positions[itemId].mouseX = event.clientX - rect.left;
+    this.positions[itemId].mouseY = event.clientY - rect.top;
+    this.positions[itemId].textVisible = true;
+  }
+
+  hideText(itemId: string) {
+    if (this.positions[itemId]) {
+      this.positions[itemId].textVisible = false;
+    }
   }
 }

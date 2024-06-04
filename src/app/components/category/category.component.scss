@@ -145,3 +145,34 @@ mat-spinner {
   .mdc-circular-progress--indeterminate {
   stroke: #fff !important;
 }
+
+.image-container {
+  position: relative;
+}
+
+.hover-hide-text {
+  position: absolute;
+  pointer-events: none; /* To prevent the text from interfering with hover events */
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 5px;
+  border-radius: 3px;
+  display: none;
+  transform: translate(
+    -50%,
+    -50%
+  ); /* To center the text at the cursor position */
+}
+img:hover + .hover-hide-text {
+  display: block;
+  color: red;
+}
+
+.hide {
+  display: none;
+}
+
+.myDIV:hover + .hide {
+  display: block;
+  color: red;
+}

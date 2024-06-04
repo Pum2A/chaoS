@@ -29,15 +29,19 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
             height="400"
           />
         </div>
-        <div class="content-text-data" *ngIf="product">
-          <p>Product: {{ product.name }}</p>
-          <p>Category: {{ product.category }}</p>
-          <p>Product price: {{ product.price }}</p>
-          <p>About product: {{ product.description }}</p>
-          <p>Product weight: {{ product.weight }}</p>
-          <p>Product disk size: {{ product.disk_size }}</p>
-          <p>Release date: {{ product.release_date }}</p>
-          <button (click)="goBack()">Return</button>
+        <div class="right">
+          <div class="content-text-data" *ngIf="product">
+            <p>Product: {{ product.name }}</p>
+            <p>Category: {{ product.category }}</p>
+            <p>Product price: {{ product.price }} $</p>
+            <p>About product: {{ product.description }}</p>
+            <p>Product weight: {{ product.weight }} kg</p>
+            <p>Product disk size: {{ product.disk_size }} GB</p>
+            <p>Release date: {{ product.release_date }}</p>
+          </div>
+          <div class="btn-container">
+            <button (click)="goBack()">Return</button>
+          </div>
         </div>
       </div>
     </div>

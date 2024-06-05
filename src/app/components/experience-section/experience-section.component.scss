@@ -16,7 +16,6 @@
   color: $main-color-text;
   font-weight: 800;
   padding: 10rem 0rem;
-  line-height: 100%;
   direction: rtl;
   // text-align: center;
 }
@@ -26,15 +25,16 @@
 }
 
 ng-icon {
-  font-size: 4rem;
+  font-size: 3rem;
   background-color: $color-hover-contrast;
-  height: 8rem;
-  width: 8rem;
+  height: 6rem;
+  width: 6rem;
   border: 3px solid #fff;
   align-items: center;
   display: flex;
   justify-content: center;
   border-radius: 50%;
+  // margin: 5rem 0rem;
 }
 
 .wrapper {
@@ -56,22 +56,42 @@ ng-icon {
   color: $main-color-text;
 }
 .content-box {
-  margin: 0 auto;
   width: 100%;
-  padding: 2rem 2rem;
-  background-color: $main-block-color;
+  height: 600px;
+  background-color: inherit;
+  border: 5px solid $main-block-color;
   border-radius: 2rem;
-  cursor: pointer;
-
-  &:hover {
-    background-color: $color-hover-contrast;
-    color: #fff;
-
-    ng-icon {
-      background-color: $color-hover-contrast;
-      border: 3px solid #fff;
-    }
-  }
+  padding: 3rem 3rem;
+}
+#first-box {
+  border: 5px solid crimson;
+}
+#second-box {
+  border: 5px solid orange;
+}
+#third-box {
+  border: 5px solid green;
+}
+#four-box {
+  border: 5px solid aqua;
+}
+#five-box {
+  border: 5px solid silver;
+}
+#six-box {
+  border: 5px solid rgb(87, 32, 32);
+}
+button {
+  background-color: inherit;
+  border: 1px solid #fff;
+  color: #fff;
+  width: 14rem;
+  height: 5rem;
+  border-radius: 2rem;
+  font-weight: 800;
+}
+.btn-container {
+  display: flex;
 }
 
 .grid-container {
@@ -79,13 +99,13 @@ ng-icon {
   // max-width: 900px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(1, 1fr);
   gap: 4rem;
 
   @media (max-width: 1320px) {
-    grid-template-rows: repeat(2, 1fr);
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
   @media (max-width: 908px) {
     grid-template-rows: repeat(1, 1fr);
@@ -95,6 +115,14 @@ ng-icon {
 p {
   margin: 0;
   padding: 0.2rem 0rem;
+}
+
+.data-content-description {
+  font-size: 1.8rem;
+  text-align: justify;
+  line-height: 130%;
+  min-height: 260px;
+  max-height: 260px;
 }
 
 .image-container {
@@ -108,9 +136,6 @@ ul {
 }
 
 img {
-  // object-fit: cover;
-  // aspect-ratio: 1;
-  image-rendering: optimizeQuality;
   border-radius: 2rem;
 }
 
@@ -121,18 +146,17 @@ img {
 .data-content {
   list-style: none;
   color: #fff;
-  // margin: 1rem 0rem;
-  min-height: 150px;
-  max-height: 150px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  min-height: 200px;
+  max-height: 200px;
+  margin: 1rem 0rem;
 }
 
 .info-about {
-  font-size: 5rem;
+  font-size: 4rem;
+  margin: 3rem 0em;
   font-weight: 800;
   letter-spacing: 0.2rem;
+  line-height: 100%;
 }
 li div {
   margin: 0.3rem 0rem;
@@ -142,27 +166,4 @@ li div {
 .block-name span {
   font-weight: 800;
   font-size: 3rem;
-}
-
-.second-icons {
-  font-size: 3rem !important;
-  width: 5rem;
-  height: 5rem;
-  margin: 3rem 0rem;
-}
-
-.data-content-second {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  text-align: center;
-}
-
-.data-content-second p {
-  text-align: center;
-  padding: 1rem 0rem;
-  font-size: 2rem;
-  line-height: 100%;
-  font-weight: 100;
 }

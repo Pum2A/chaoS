@@ -153,10 +153,8 @@ mat-spinner {
 .hover-hide-text {
   position: absolute;
   pointer-events: none; /* To prevent the text from interfering with hover events */
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.466);
   color: white;
-  padding: 5px;
-  border-radius: 3px;
   display: none;
   transform: translate(
     -50%,
@@ -164,8 +162,10 @@ mat-spinner {
   ); /* To center the text at the cursor position */
 }
 img:hover + .hover-hide-text {
-  display: block;
-  color: red;
+  background-color: $color-hover-contrast;
+  min-width: 10rem;
+  padding: 1rem 0.3rem;
+  font-weight: 800;
 }
 
 .hide {

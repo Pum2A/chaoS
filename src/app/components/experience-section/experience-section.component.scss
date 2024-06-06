@@ -16,7 +16,8 @@
   color: $main-color-text;
   font-weight: 800;
   padding: 10rem 0rem;
-  direction: rtl;
+  text-shadow: 1px 1px 1px #fff;
+
   // text-align: center;
 }
 
@@ -34,6 +35,7 @@ ng-icon {
   display: flex;
   justify-content: center;
   border-radius: 50%;
+  box-shadow: 1px 1px 1px #fff;
   // margin: 5rem 0rem;
 }
 
@@ -50,7 +52,6 @@ ng-icon {
 }
 
 .item-name {
-  font-weight: 800 !important;
   font-size: 2.4rem;
   padding: 2rem 0rem;
   color: $main-color-text;
@@ -65,20 +66,29 @@ ng-icon {
 }
 #first-box {
   border: 5px solid crimson;
+  box-shadow: 0px 0px 10px crimson;
 }
 #second-box {
   border: 5px solid orange;
+  box-shadow: 0px 0px 10px orange;
 }
 #third-box {
+  box-shadow: 0px 0px 10px green;
+
   border: 5px solid green;
 }
 #four-box {
+  box-shadow: 0px 0px 10px aqua;
+
   border: 5px solid aqua;
 }
 #five-box {
+  box-shadow: 0px 0px 10px silver;
+
   border: 5px solid silver;
 }
 #six-box {
+  box-shadow: 0px 0px 10px rgb(87, 32, 32);
   border: 5px solid rgb(87, 32, 32);
 }
 button {
@@ -123,6 +133,8 @@ p {
   line-height: 130%;
   min-height: 260px;
   max-height: 260px;
+  font-weight: 100;
+  text-shadow: 1px 1px 1px #fff;
 }
 
 .image-container {
@@ -157,13 +169,4 @@ img {
   font-weight: 800;
   letter-spacing: 0.2rem;
   line-height: 100%;
-}
-li div {
-  margin: 0.3rem 0rem;
-  font-weight: 100;
-}
-
-.block-name span {
-  font-weight: 800;
-  font-size: 3rem;
 }

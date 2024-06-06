@@ -21,9 +21,29 @@
   background-color: $main-block-color;
   display: flex;
   flex-direction: column;
+  height: 600px;
+  padding: 0rem 4rem;
+  border-radius: 3rem;
+}
+.title-block {
+  min-height: 200px;
+  max-height: 200px;
+
+  display: flex;
   justify-content: center;
-  height: 300px;
-  padding: 1rem 4rem;
+
+  flex-direction: column;
+}
+.description-block {
+  min-height: 200px;
+  max-height: 200px;
+}
+.end-block {
+  min-height: 200px;
+  max-height: 200px;
+  display: flex;
+  // justify-content: center;
+  align-items: center;
 }
 .block h5 {
   font-weight: 800;
@@ -34,14 +54,15 @@
 }
 .block p {
   color: $main-color-text;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   padding: 1rem 0;
   font-weight: 100;
+  line-height: 120%;
   text-align: justify;
 }
 .block a {
   font-size: 1.8rem;
-  color: $color-hover-contrast;
+  color: $main-color-text;
   padding: 1rem 0;
   text-transform: uppercase;
   font-weight: 800;
@@ -49,21 +70,17 @@
   cursor: pointer;
 }
 .a-cont {
-  width: 100%;
+  padding: 1rem 1rem;
+  border-radius: 1rem;
+  background-color: inherit;
+  border: 5px solid $color-hover-contrast;
+  cursor: pointer;
 }
 ng-icon {
   font-size: 5rem;
   color: $color-hover-contrast;
 }
-.block:hover {
-  background-color: #9c2456;
-  .a-cont a {
-    color: #fff;
-  }
-  ng-icon {
-    color: #fff;
-  }
-}
+
 @media screen and (max-width: 900px) {
   .blocks-wrapper {
     grid-template-columns: repeat(1, 1fr);

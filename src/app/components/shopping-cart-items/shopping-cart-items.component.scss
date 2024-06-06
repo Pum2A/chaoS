@@ -87,3 +87,7 @@ img {
 body {
   overflow: hidden !important;
 }
+
+* {
+  z-index: 1000;
+}
